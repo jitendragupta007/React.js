@@ -1,0 +1,64 @@
+.App {
+  text-align: center;
+}
+
+.question--- {
+  display: flex;
+  width: 400px;
+  margin: auto;
+  border: 1px solid rgba(0, 0, 0, 0.548);
+  justify-content: space-around;
+  font-weight: bold;
+  padding: 10px;
+  background-color: teal;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.answer {
+  display: grid;
+  width: 400px;
+  margin: auto;
+  gap: 15px;
+}
+
+.answer button{
+
+  background-color: blue;
+  color:white;
+  padding:8px;
+  font-weight: bold;
+  cursor:pointer;
+  border: none;
+}
+
+.answer button:hover{
+
+  background-color:rgb(4, 4, 94);
+}
+
+
+
+
+#result{
+
+  background-color: blue;
+  width: 400px;
+  margin:auto;
+  padding:15px;
+  color: white;
+  font-size: 25px;
+  border-radius: 5px;
+  margin-bottom: 40px;  
+}
+
+#reset{
+
+  padding: 5px; 
+  color: white;
+  background-Color: green; 
+  font-size: 20px; 
+  border: none;
+  cursor: pointer;
+
+}

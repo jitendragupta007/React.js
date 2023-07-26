@@ -1,0 +1,40 @@
+.App {
+  text-align: center;
+}
+
+
+.inputValues{
+  
+ display:flex;
+ width:70%;
+ margin:auto;
+ margin-top:40px;
+ justify-content: center;
+ gap:10px;
+
+
+}
+
+.header{
+  background-color: teal;
+  padding:1px;
+}
+
+.dataVal{
+  display:flex;
+  width:70%;
+  justify-content:space-between;
+  margin:auto;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  align-items: center;
+  padding: 0px 20px;
+}
+
+.data{
+ height:auto;
+
+  margin-top: 50px;
+}
+
+
+
