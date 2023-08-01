@@ -1,0 +1,48 @@
+.App {
+  text-align: center;
+  height:100%;
+  margin-bottom: 50px;
+}
+
+#header {
+  padding: 15px;
+  width: 30%;
+  margin: auto;
+  color: teal;
+}
+
+#fields {
+  display: flex;
+  width: 300px;
+  margin: auto;
+  gap: 5px;
+  flex-grow: inherit;
+  align-content: center;
+}
+
+.table {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.data {
+  width: 40%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 0 15px 0 15px;
+  align-items: center;
+  
+}
+
+#removeBtn {
+ width: 125px;
+ position: fixed;
+ bottom:5px;
+ margin-left: 80%;
+}
