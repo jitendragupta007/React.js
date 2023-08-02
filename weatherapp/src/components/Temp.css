@@ -1,0 +1,72 @@
+*{
+  font-family: "Jost", sans-serif;
+
+}
+
+
+
+.box{
+width:280px;
+height: 350px;
+border: 1px solid rgba(0, 0, 0, 0.034);
+margin: auto;
+border-radius: 20px;
+background-color: #82ccdd;
+background-image: url(https://img.freepik.com/free-photo/sky_53876-47159.jpg?w=826&t=st=1690980736~exp=1690981336~hmac=bf585deeef1e7e1229035625944f7c315a96c1fe8a5650e77257b30d923d21a2);
+}
+
+.inputData{
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+.inputField{
+  
+    width: 60%;
+    height: 35px;
+    margin:auto;
+   border-radius: 30px;
+   padding: 10px;
+   border: 1px solid rgba(0, 0, 0, 0.644)
+ 
+}
+
+.location{
+    width:70%;
+    height:20%;
+    margin:auto;
+    display: flex;
+    justify-content: center;
+    gap:5px;
+    margin-top:30%;
+    font-size: 3rem;
+    color: rgb(1, 49, 49);
+}
+
+.temper{
+    display:flex;
+    justify-content: center;
+    margin-top: 0px;
+    color: rgb(1, 26, 26);
+}
+
+.max{
+    display: flex;
+    justify-content: center;
+    margin-top: -40px;
+    gap:10px;
+    color: rgb(1, 26, 26);
+}
+
+#noData{
+    height:100%;
+    text-align: center;
+   margin-top: 50px;
+   color: rgb(1, 26, 26);
+}
+
+
+

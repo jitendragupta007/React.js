@@ -10,9 +10,10 @@ function App() {
   const [data, setData] = useState([]);
 
   const addData = () => {
-    setData([...data, { todo }]);
+   setData([...data, { todo }]);
     setTodo(" ");
   };
+
 
   const removeData = () => {
     setData([]);
@@ -62,8 +63,9 @@ function App() {
               <p>{element.todo}</p>
               <Stack>
                 <Button
+               
                   onClick={() => removeItem(index)}
-                  variant="outlined"
+                  variant="contained"
                   color="error"
                 >
                   <DeleteIcon />
