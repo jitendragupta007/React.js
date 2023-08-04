@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 const Weather = () => {
   const [city, setCity] = useState(null);
-  const [search, setSearch] = useState("Delhi");
+  const [search, setSearch] = useState("");
 
   //831261a1d96631b08e530cc6d5c8baa3
   //https://api.openweathermap.org/data/2.5/weather?q=Jaipur&appid=831261a1d96631b08e530cc6d5c8baa3
@@ -29,13 +29,15 @@ const Weather = () => {
           value={search}
           className="inputField"
           onChange={(event) => {
-            setSearch(event.target.value);
+            setSearch(event.target.value); 
           }}
         />
       </div>
 
       {!city ? (
-        <h2 id="noData">No Data Found</h2>
+        <>
+          <h2 id="noData">Enter A city name</h2>
+        </>
       ) : (
         <div className="info">
           <h2 className="location">
@@ -46,10 +48,8 @@ const Weather = () => {
           <h3 className="max">
             <h4>Min:{city.temp_min}°Cel</h4> <h4>Max:{city.temp_max}°Cel</h4>
           </h3>
-    
         </div>
-      )
-      }
+      )}
     </div>
   );
 };
