@@ -1,0 +1,106 @@
+*{
+padding: 0px;
+margin:0px;
+box-sizing: border-box;
+}
+
+#title{
+  width:250px;
+  padding: 5px;
+  margin:auto;
+  color:rgb(43, 201, 201);
+  text-align: center;
+  margin-top: 40px;
+  font-size: 30px;
+  background-color:blue;
+  color: rgb(206, 212, 211);
+  border-radius: 20px;
+}
+
+body{
+  background-color: black;
+}
+
+#stopwatch{
+  width: 300px;
+  height:150px;
+  background-color: white;
+  margin:auto;
+  margin-top: 100px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  padding:20px;
+}
+
+
+#buttons{
+  display:flex;
+  gap: 10px;
+}
+
+#buttons button{
+padding: 7px;
+width: 60px;
+margin-top: 20px;
+cursor: pointer;
+}
+
+#watch{
+  display: flex;
+  justify-content: center;
+}
+
+#buttons button:nth-child(1), #buttons button:nth-child(2){
+
+  background-color:blue;
+  color:white;
+  border: none;
+  padding:7px;
+}
+
+#buttons button:nth-child(3){
+
+  background-color:red;
+  color:white;
+  border: none;
+  padding:7px;
+}
+
+
+#buttons button:nth-child(1):hover{
+
+ background-color: rgb(3, 3, 146);
+}
+
+#buttons button:nth-child(2):hover{
+
+  background-color: rgb(3, 3, 146);
+ }
+
+ #buttons button:nth-child(3):hover{
+
+  background-color: rgb(175, 3, 3);
+ }
+
+ #display{
+  width: 100%;
+  display:flex;
+  justify-content:space-between;
+  text-align: center;
+
+ }
+
+ #display h2{
+
+  width: 48px;
+  display: flex;
+  padding:8px;
+  box-sizing: border-box;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  font-size:20px;
+  justify-content: center;
+
+ }
+
+
