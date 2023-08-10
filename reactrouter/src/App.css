@@ -1,0 +1,22 @@
+.Navbar{
+  font-weight: bold;
+  font-size: 30px;
+  display:flex;
+  justify-content: space-around;
+  color: red;
+  background-color: teal;
+  padding:15px;
+
+}
+
+.Navbar .Link1{
+  color:white;
+  cursor: pointer;
+}
+
+/* .Navbar a.active{
+  color: blue;
+  text-decoration: none;
+} */
+
+

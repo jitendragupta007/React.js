@@ -9,15 +9,15 @@ const Stopwatch = () => {
   const [Mseconds, setMseconds] = useState(0);
   const [stop, setStop] = useState(true);
 
-  const onStart =()=> {
+  const onStart = () => {
     setStop(false);
   };
 
-  const onStop =()=> {
+  const onStop = () => {
     setStop(true);
   };
 
-  const onReset =()=> {
+  const onReset = () => {
     setHours(0);
     setMinutes(0);
     setSeconds(0);
@@ -46,6 +46,8 @@ const Stopwatch = () => {
         if (Mseconds <= 999) {
           setMseconds(Mseconds + 1);
         }
+        
+        
       }, 1);
     } else {
       clearInterval(interval);
@@ -59,10 +61,10 @@ const Stopwatch = () => {
     <div id="stopwatch">
       <div id="watch">
         <div id="display">
-         <h2>{hours} </h2>
-         <h2>{minutes}</h2>
-         <h2>{seconds}</h2>
-         <h2>{Mseconds} </h2>  
+          <h2>{hours} </h2>
+          <h2>{minutes}</h2>
+          <h2>{seconds}</h2>
+          <h2>{Mseconds} </h2>
         </div>
       </div>
       <div id="buttons">

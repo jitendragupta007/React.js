@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import React, { useState } from "react";
 import Stack from "@mui/material/Stack";
 import DeleteIcon from "@mui/icons-material/Delete";
+
 function App() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -13,11 +14,14 @@ function App() {
   const [data, setData] = useState([]);
 
   const addData = () => {
-  setData([...data, { name, email }]);
-  setName(" ");
-  setEmail(" ")
-
-
+    if (name === "" || email === "") {
+      alert("Please fill all the fields");
+      return false;
+    } else {
+      setData([...data, { name, email }]);
+      setName("");
+      setEmail("");
+    }
   };
 
   const removeItem = (index) => {
@@ -26,15 +30,12 @@ function App() {
     setData([...arr]);
   };
 
- 
-
   return (
     <div className="App">
       <Header />
       <div className="inputValues">
         {" "}
         <TextField
-
           value={name}
           onChange={(e) => setName(e.target.value)}
           id="outlined-success"
@@ -42,7 +43,6 @@ function App() {
           defaultValue=""
         />
         <TextField
-        
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           id="outlined-success"
@@ -62,7 +62,7 @@ function App() {
         {data.map((element, index) => {
           return (
             <div className="dataVal">
-              <h4 >{element.name}</h4>
+              <h4>{element.name}</h4>
               <h4>{element.email}</h4>
               <Stack>
                 <Button

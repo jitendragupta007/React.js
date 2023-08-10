@@ -8,13 +8,16 @@ import DeleteIcon from "@mui/icons-material/Delete";
 function App() {
   const [todo, setTodo] = useState("");
   const [data, setData] = useState([]);
+  console.log({ todo });
 
   const addData = () => {
-   setData([...data, { todo }]);
-    setTodo(" ");
+    if (todo === "") {
+      alert("Please fill the input first");
+    } else {
+      setData([...data, { todo }]);
+      setTodo("");
+    }
   };
-
-
   const removeData = () => {
     setData([]);
   };
@@ -63,7 +66,6 @@ function App() {
               <p>{element.todo}</p>
               <Stack>
                 <Button
-               
                   onClick={() => removeItem(index)}
                   variant="contained"
                   color="error"
