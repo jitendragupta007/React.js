@@ -1,0 +1,309 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: #dfe6e9;
+}
+
+.Navbar {
+  width: 100%;
+ background-color: rgba(0, 0, 0, 0.932);
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  align-items: center;
+  position:fixed;
+  top:0px;
+}
+
+.navp1 {
+  width: 45%;
+  display: flex;
+  padding: 24px;
+  justify-content: space-between;
+}
+
+.navp2 {
+  width: 22%;
+  display: flex;
+  padding: 24px;
+  justify-content: space-around;
+}
+
+.navp2 :nth-child(1) {
+  background-color: blue;
+  padding:8px;
+  color:white;
+  border-radius:8px;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+
+.navp1 h2{
+  padding:8px;
+  color:white;
+  border-radius:8px;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.navp1 :nth-child(1) {
+  background-color: blue;
+}
+
+.navp1 :nth-child(2) {
+  background-color: orangered;
+  border-radius: 10px;
+}
+
+
+.navp1 :nth-child(3) {
+  background-color: rgb(7, 197, 245);
+}
+
+
+.navp1 :nth-child(5) {
+  background-color: rgb(228, 222, 202);
+  color:black;
+}
+
+#select1{
+  display: flex;
+ border-radius: 10PX;
+ cursor: pointer;
+ font-size: 20px;
+ align-content: center;
+
+}
+
+
+
+.container{
+  width:95%;
+  height:580px;
+  display:grid;
+  grid-template-columns: repeat(4,1fr);
+  margin:auto;
+  gap:25px;
+  margin-top:130px;
+  margin-bottom: 100px
+}
+
+.container img{
+  width:100%;
+  height:60%;
+}
+
+.card{
+ background-color: rgba(255, 255, 255, 0.603);
+ height:550px;
+ line-height:25px;
+ cursor: pointer;
+ box-sizing: border-box;
+}
+
+.card img:hover{
+  transform:scale(1.1);
+}
+
+#cardtext{
+  padding:10px;
+}
+
+h5{
+  color:orangered
+}
+
+h6{
+  color:rgb(177, 151, 7)
+}
+
+h4, h5, h6{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.26);
+}
+
+#select1 a select{
+  cursor:pointer;
+  text-decoration: none;
+  color:white;
+  background-color: black;
+  padding:3px;
+  border-radius: 5px;
+}
+
+#select1  a{
+  background-color: rgb(161, 155, 133);
+  padding:3px;
+  border-radius: 5px;
+}
+
+#home h2{
+  border-radius: 10px;
+  color:white;
+  background-color:orangered;
+  
+}
+
+#home{
+  text-decoration: none;
+}
+
+
+
+@media  all and (max-width:720px) and (min-width: 480px){
+
+  .Navbar {
+    width: 100%;
+   background-color: rgba(0, 0, 0, 0.932);
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    align-items: center;
+    position:fixed;
+    top:0px;
+  }
+  
+  .navp1{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+  
+  
+  .navp1 h2{
+    padding:5px;
+    color:white;
+    border-radius:8px;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 14px;
+  }
+  
+  .navp1 :nth-child(1) {
+    background-color: blue;
+  }
+  
+  .navp1 :nth-child(2) {
+    background-color: orangered;
+    border-radius: 10px;
+  }
+  
+  
+  .navp1 :nth-child(3) {
+    background-color: rgb(7, 197, 245);
+  }
+  
+  
+  .navp1 :nth-child(5) {
+    background-color: rgb(228, 222, 202);
+    color:black;
+  }
+  
+  #select1{
+    display: flex;
+   border-radius: 10PX;
+   cursor: pointer;
+   font-size: 20px;
+   align-content: center;
+  
+  }
+  
+  
+
+  .container{
+    width:95%;
+    height:auto;
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    margin:auto;
+    gap:25px;
+    margin-top:130px;
+    margin-bottom: 100px
+  }
+
+  .card{
+    background-color: rgba(255, 255, 255, 0.603);
+    height:550px;
+    line-height:25px;
+    cursor: pointer;
+   }
+
+   h4{
+    font-size: 12px;
+   }
+
+
+
+   .navp2 {
+    width: 22%;
+    display: flex;
+    padding: 24px;
+    justify-content: space-around;
+    font-size:12px;
+  }
+
+  .navp2 h2{
+ font-size: 12px;
+ }
+  
+
+}
+
+
+#select2{
+  padding:5px;
+  color: white;
+  background-color: rgb(75, 69, 69);
+  border-radius: 10px;
+  cursor:pointer;
+}
+
+
+#btn{
+display:flex;
+justify-content: center;
+}
+
+
+#btn #addToCart{
+  width:150px;
+  height:30px;
+  color:white;
+  background-color: rgb(5, 5, 204);
+  padding:10x;
+  border: 0px;
+  cursor:pointer;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 10px;
+  
+}
+
+
+#btn #addToCart:hover{
+ transform: scale(1.2)
+}
+
+#cart{
+  background-color: gray;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#cart h2{
+  background-color:rgb(58, 56, 56);
+  border-radius: 10px;
+  color:white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+
+
+
