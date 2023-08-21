@@ -1,19 +1,43 @@
-import React from 'react'
-import "./Cart.css"
+import React, { useReducer } from "react";
+import "./Cart.css";
 
-const CartCards = ({ 
-    img,
-    title,
-    price,
-    reviews,}) => {
+
+const CartCards = ({
+  removeCart,
+  img,
+  title,
+  price,
+  element,
+  addtoCartData,
+}) => {
+  const initialState = {
+    item: addtoCartData,
+    totalAmount: 0,
+    totalItem: 0,
+  };
+
+  
+
   return (
-    <div id="mainCartDiv">
-       <img src={img} alt={title} />
+    <div key={element.id} id="mainCartDiv">
+      <div>
+        <img src={img} alt={title} />
+      </div>
+      <div>
         <h4>{title}</h4>
-        <h5>Price: {price}$</h5>
-        <h6>Rating: {reviews?.rate}/5</h6>  
-    </div>
-  )
-}
+      </div>
+      <div>
+        <button>-</button>4<button>+</button>
+      </div>
+      <div>
+        <h3>{price}$</h3>
+      </div>
 
-export default CartCards
+      <div id="remove">
+        <button onClick={removeCart}>Remove</button>
+      </div>
+    </div>
+  );
+};
+
+export default CartCards;

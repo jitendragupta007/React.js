@@ -10,11 +10,26 @@ const Card = ({
   element,
   addtoCartData,
 }) => {
-  const addToCart = () => {
-    let newdata = [...addtoCartData];
-    newdata.push(element);
-    setAddtoCartData(newdata);
-
+  const addToCart = (id) => {
+    let objectElement = {...element}
+    if (addtoCartData?.length != 0) {
+      const arr = addtoCartData?.findIndex((value) => {
+        return value?.id == id;
+      });
+      if (arr > -1) {
+        alert("Item is already in the cart");
+      } else {
+        objectElement['quantity'] = 1
+        let newdata = [...addtoCartData];
+        newdata.push(objectElement);
+        setAddtoCartData(newdata);
+      }
+    } else {
+      objectElement['quantity'] = 1
+      let newdata = [...addtoCartData];
+      newdata.push(objectElement);
+      setAddtoCartData(newdata);
+    }
     // console.log(element);
   };
 
@@ -26,7 +41,7 @@ const Card = ({
         <h5>Price: {price}$</h5>
         <h6>Rating: {reviews?.rate}/5</h6>
         <div id="btn">
-          <button onClick={addToCart} id="addToCart">
+          <button onClick={() => addToCart(element.id)} id="addToCart">
             Add to Cart
           </button>
         </div>
