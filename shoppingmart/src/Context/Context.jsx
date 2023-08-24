@@ -1,20 +1,21 @@
 import { createContext, useReducer, useContext } from "react";
 import React from "react";
-import faker from "faker";
+import { faker } from '@faker-js/faker';
 import { cartReducer } from  "./Reducers"
 
 const Cart = createContext();
+faker.seed(119)
+// it will rendr only one time. we made it static by doing this.
 
 const Context = ({ children }) => {
 
   const products = [...Array(20)].map(() => ({
-    id: faker.datatype.uuid(),
+    id: faker.string.uuid(),
     name: faker.commerce.productName(),
-    price: faker.commerce.price(),
-    image: faker.random.image(),
-    inStock: faker.random.arrayElement([0, 3, 5, 6, 7]),
+    price: faker.commerce.price({ min: 30, max: 200 }),
+    image: faker.image.urlLoremFlickr({ category: 'watch' }) ,
     fastDelivery: faker.datatype.boolean(),
-    ratings: faker.random.arrayElement([1, 2, 3, 4, 5]),
+    
   }));
 
   console.log(products)

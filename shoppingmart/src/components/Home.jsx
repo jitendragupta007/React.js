@@ -9,12 +9,14 @@ const Home = () => {
   } = CartState();
 
   return (
-    <div className="home">
+    <div  id="home" className="home">
+    <div id="innerContainer">
     <Filters/>
       <div className="productContainer">
         {products.map((element) => {
           return <SingleProduct element={element} key={element.id} a />;
         })}
+      </div>
       </div>
     </div>
   );
