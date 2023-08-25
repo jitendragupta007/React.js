@@ -2,8 +2,9 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import RecipeCard from "./components/RecipeCard";
 import SearchBar from "./components/SearchBar";
-
+import { Vortex } from  'react-loader-spinner'
 import { useState, useEffect } from "react";
+
 
 function App() {
   const [isloading, setIsloading] = useState(false);
@@ -17,7 +18,7 @@ function App() {
     );
 
     const data = await res.json();
-    console.log(data);
+    console.log("data", data);
     setRecipes(data.meals);
     console.log(data.meals)
     setIsloading(false);
@@ -36,7 +37,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <SearchBar
+      <SearchBar  id="searchBar"
         value={query}
         handleSubmit={handleSubmit}
         onChange={(event) => setQuery(event.target.value)}
@@ -45,12 +46,24 @@ function App() {
 
       <div id="recipes">
         {recipes? (
-          recipes.map((recipe) => {
-            return <RecipeCard key={recipe.idMeal} recipe={recipe} />;
+          recipes.map((element) => {
+            return <RecipeCard key={element.idMeal} element={element} />;
           })
         ) : (
-          <h2>"No Recipes Found"</h2>
-        )}
+          
+        <div id="spinner">
+          <Vortex 
+  visible={true}
+  height="150"
+  width="150"
+  ariaLabel="vortex-loading"
+  wrapperStyle={{}}
+  wrapperClass="vortex-wrapper"
+  colors={['red', 'green', 'blue', 'yellow', 'orange', 'purple']}
+/>
+
+</div>
+ )}
       </div>
     </div>
   );

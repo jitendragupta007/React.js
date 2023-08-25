@@ -4,9 +4,7 @@ import SingleProduct from "./SingleProduct";
 import "./style.css";
 import Filters from "./Filters";
 const Home = () => {
-  const {
-    state: { products },
-  } = CartState();
+  const {state: { products } } = CartState(); //one level extra destructuring
 
   return (
     <div  id="home" className="home">

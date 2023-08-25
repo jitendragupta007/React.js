@@ -12,7 +12,7 @@ const Header = () => {
         </Navbar.Brand>
         <Navbar.Text className="search">
           <FormControl
-            style={{ width: "500" }}
+            style={{ width: 500 }}
             placeholder=" Search a product
               here"
             className="m-auto"
@@ -21,7 +21,7 @@ const Header = () => {
         <Dropdown >
           <Dropdown.Toggle variant="success" id="dropdown-basic">
           <FaShoppingCart color="white" fontSize="25px"/>
-            <Badge>{10}</Badge>
+            <Badge>{0}</Badge>
           </Dropdown.Toggle>
 
           <Dropdown.Menu style={{minWidth:170}}>

@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React from "react";
 import "./Cart.css";
 
 
@@ -10,12 +10,7 @@ const CartCards = ({
   element,
   addtoCartData,
 }) => {
-  const initialState = {
-    item: addtoCartData,
-    totalAmount: 0,
-    totalItem: 0,
-  };
-
+ 
   
 
   return (

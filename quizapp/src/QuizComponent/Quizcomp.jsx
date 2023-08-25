@@ -105,7 +105,7 @@ const Quizcomp = () => {
             </div>
             <div className="answer">
               {Questionbank[currentQuestion].AnswerText.map((elem) => (
-                <button onClick={() => handleResponse(elem.isCorrect)}>
+                <button onClick={() => handleResponse(elem.isCorrect)}> 
                   {elem.Answer}
                 </button>
               ))}

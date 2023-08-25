@@ -9,3 +9,9 @@ export const cartReducer =(state, action) =>{
 
     }
 }
+
+
+//action is the type of the action whatever
+// it is like inc and dec or any other type of action
+// whichever we want to perform like
+//adding removing deleting etc.
