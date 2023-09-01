@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import "./mart.css"
 
-const NavBar = ({setState}) => {
+const NavBar = ({setState, cartData}) => {
   return (
     <div className="Navbar">
       <div className="navp1">
@@ -22,7 +22,7 @@ const NavBar = ({setState}) => {
          
         </div>
 
-      <Link id="cart" to="cart"><h2>Cart(0)</h2></Link>
+      <Link id="cart" to="cart"><h2>Cart({cartData.length})</h2></Link>
       </div>
       <div className="navp2">
         <h2>Contact Us</h2>

@@ -1,6 +1,4 @@
-import React, { createContext, useState } from "react";
-export const addToCartItem = createContext();
-
+import React from "react";
 
 const SingleCard = ({ element, cartData, setCartData }) => {
   const { image, title, price, rating } = element;
@@ -30,9 +28,12 @@ const SingleCard = ({ element, cartData, setCartData }) => {
     }
   };
 
+ 
+
+
 
   return (
-    <addToCartItem.Provider value={{ cartData }}>
+    
       <div className="card">
         <img src={image} alt={title} />
         <div id="cardtext">
@@ -46,7 +47,7 @@ const SingleCard = ({ element, cartData, setCartData }) => {
           </div>
         </div>
       </div>
-    </addToCartItem.Provider>
+  
   );
 };
 

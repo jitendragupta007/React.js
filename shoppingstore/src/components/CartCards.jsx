@@ -4,11 +4,8 @@ import "./Cart.css";
 
 const CartCards = ({
   removeCart,
-  img,
-  title,
-  price,
+ 
   element,
-  addtoCartData,
 }) => {
  
   

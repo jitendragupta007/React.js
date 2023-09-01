@@ -1,11 +1,113 @@
-import React from 'react'
+import React, { useContext, useReducer, useEffect } from "react";
+import CartCard from "./CartCard";
+import { CartContext } from "../App";
+import { reducer } from "./reducer";
 
-const Cart = () => {
+const Cart = ({setCartData}) => {
+  const items = useContext(CartContext);
+  console.log("items", items.cartData);
+
+  let products = items.cartData;
+
+  console.log("products", products);
+
+  console.log(products);
+  const initialState = {
+    item: products,
+    totalAmount: 0,
+    totalItem: 0, 
+  };
+
+
+
+  console.log("initialState", initialState);
+
+  //const [initialData, (for performing/triggering any action)]=[we will create reducer funtion. we will define dispatch actions here. ]
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  console.log(state, "state");
+
+ useEffect (()=>{
+  setCartData(state.item)
+   },[state])
+
+  // to delete indiv. elements form an item Cart.
+  const removeItem = (id) => {
+    return dispatch({
+      type: "REMOVE_ITEM",
+      payload: id,
+    });
+  };
+
+//clear the cart
+const clearCart = () => {
+  return dispatch({
+    type: "CLEAR_CART",
+
+  });
+};
+
+//
+//increment the items
+const increment=(id) => {
+  return dispatch({
+    type: "INCREMENT",
+    payload: id,
+  });
+};
+
+//decrement the items
+const decrement=(id) => {
+  return dispatch({
+    type: "DECREMENT",
+    payload: id,
+  });
+};
+
+//total items
+
+console.log("state on cartPage", state)
+
+useEffect(()=>{
+
+  dispatch({type:"GET_TOTAL"})
+
+},[state.item]);
+
+
+
   return (
-    <div>
-      <h1>Cart Page</h1>
+    <div id="mainCart">
+      <div>
+        <h1> Shopping Cart</h1>
+        <p>
+          {" "}
+          You have total <span id="countCart"> {state.totalItem}</span> items
+          in the shopping cart.
+        </p>
+      </div>
+      {state.item?.map((element) => {
+        return (
+          <div key={element.id}>
+            <CartCard
+              element={element}
+              value={{ ...state }}
+              removeItem={removeItem}
+              id={element.id}
+              increment={increment}
+              decrement={decrement}
+              
+            />
+          </div>
+        );
+      })}
+      <div>
+        <h2>Cart Total: {state.totalAmount}$</h2>
+        <button onClick={clearCart}>Clear all items</button>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;

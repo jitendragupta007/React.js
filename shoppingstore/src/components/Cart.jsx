@@ -21,11 +21,7 @@ const Cart = ({ addtoCartData, removeCart }) => {
             <div>
               <CartCards
                 key={element.id}
-                img={element?.image}
-                title={element?.title}
-                price={element?.price}
-                reviews={element?.rating}
-                element={element}
+                
                 addtoCartData={addtoCartData}
                 id={element.id}
                 removeCart={() => removeCart(element.id)}

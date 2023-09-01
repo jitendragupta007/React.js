@@ -1,0 +1,65 @@
+*{
+    padding:0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+#mainCart{
+    display: grid;
+    width:95%;
+    margin:auto;
+    grid-template-columns: (1,1fr);
+    margin-top: 120px;
+    gap:5px;
+    margin-bottom: 50px;
+
+}
+
+#mainCartDiv{
+    display:grid;
+    grid-template-columns: repeat(5,1fr);
+     background-color: white;
+    height:200px;
+    width:100%;
+    padding:20px;
+    margin:auto;
+    margin-top:10px;
+
+}
+
+#mainCartDiv div{
+display:flex;
+  width:100%;
+  height:auto;
+  padding:5px;
+  justify-content: center;
+ text-align: center;
+ align-items: center;
+ gap:5px;
+}
+
+img{
+    width:50%;
+    height:150px;
+}
+
+div button{
+    padding:8px;
+    cursor:pointer;
+    color:white;
+    background-color: blue;
+    border:0px;
+}
+
+
+#countCart{
+    font-size: 20px;
+    color:rgb(1, 75, 75);
+    font-weight: bold;
+}
+
+#remove button{
+    color:white;
+    background-color:rgba(0, 0, 0, 0.918);
+    
+}

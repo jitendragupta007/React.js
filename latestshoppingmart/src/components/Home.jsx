@@ -1,11 +1,10 @@
 import SingleCard from "./SingleCard";
 import "./mart.css";
 import { CartContext } from "../App";
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 
-const Home = () => {
+const Home = ({ setCartData, cartData }) => {
   const items = useContext(CartContext);
-  const [cartData, setCartData] = useState([]);
 
   // console.log ("fullData", items.data)
   // console.log ("filterData", items.filterData)
@@ -21,7 +20,15 @@ const Home = () => {
     <>
       <div className="container">
         {totaldata?.map((element) => {
-          return <SingleCard key={element.id} element={element} setCartData={setCartData} cartData={cartData}/>;
+          return (
+            <SingleCard
+              key={element.id}
+              element={element}
+              setCartData={setCartData}
+              cartData={cartData}
+      
+            />
+          );
         })}
       </div>
     </>
