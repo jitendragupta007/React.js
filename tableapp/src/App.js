@@ -62,8 +62,8 @@ function App() {
         {data.map((element, index) => {
           return (
             <div className="dataVal">
-              <h4>{element.name}</h4>
-              <h4>{element.email}</h4>
+              <p>{element.name}</p>
+              <p>{element.email}</p>
               <Stack>
                 <Button
                   onClick={() => removeItem(index)}

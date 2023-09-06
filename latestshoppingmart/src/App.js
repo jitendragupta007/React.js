@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Cart from "./components/Cart";
 import { useState, useEffect, createContext } from "react";
+import {ToastContainer} from "react-toastify"
 
 export const CartContext = createContext();
 
@@ -12,6 +13,7 @@ function App() {
   const [data, setData] = useState([]);
   const [filterData, setFilterData] = useState([]);
   const [cartData, setCartData] = useState([]);
+
 
   //We should make states always here so we can provide data 
   //her to everywhere in the app.
@@ -36,9 +38,11 @@ function App() {
 
   return (
     <>
+    
       <CartContext.Provider value={{ data, filterData, cartData }}>
         <div className="App">
-          <NavBar setState={setState}  cartData={cartData} />
+          <NavBar setState={setState}  cartData={cartData} homepage={()=>setState('')} />
+          <ToastContainer  position="top-center" autoClose={500} limit={1}   />
           <Routes>
             <Route
               path="/"

@@ -2,13 +2,13 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import "./mart.css"
 
-const NavBar = ({setState, cartData}) => {
+const NavBar = ({setState, cartData, homepage}) => {
   return (
     <div className="Navbar">
       <div className="navp1">
         <h2>Shopping</h2>
         <Link id="home" to="/">
-          <h2>Home</h2>
+          <h2 onClick={homepage}  >Home</h2>
         </Link>
         <h2>Photo</h2>
         <div id="select1">

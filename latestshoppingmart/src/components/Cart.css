@@ -4,6 +4,8 @@
     box-sizing: border-box;
 }
 
+
+
 #mainCart{
     display: grid;
     width:95%;
@@ -62,4 +64,41 @@ div button{
     color:white;
     background-color:rgba(0, 0, 0, 0.918);
     
+}
+
+#cartTotal{
+    display:grid;
+    text-align: center;
+    justify-content: center;
+    gap:20px;
+    margin-top: 40px;
+}
+
+#cartTotal button{
+    width:130px;
+    border-radius: 12px;
+    background-color:blue;
+    justify-content: center;
+
+}
+
+#cartTotal button:hover{
+    background-color: red;
+}
+
+
+#removeItem{
+    width:80px;
+    border-radius: 12px;
+    background-color: blue !important;
+}
+
+#removeItem:hover{
+    background-color: red !important;
+}
+
+.quantityBtn:hover{
+    background-color: green !important;
+
+
 }

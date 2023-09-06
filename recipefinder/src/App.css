@@ -62,16 +62,18 @@ h1{
   width: 100%;
   margin: auto;
   display: flex;
-  margin-top: 100px;
+  margin-top: 120px;
   box-sizing: border-box;
   justify-content: center;
   gap: 5px;
+  margin-bottom:30px;
 
 }
 
 #form .form-control {
   width: 30%;
   padding: 2px;
+  padding-left:5px;
 }
 
 #form .btn {

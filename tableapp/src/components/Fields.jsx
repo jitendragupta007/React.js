@@ -7,9 +7,9 @@ import "../App.css"
 const Fields = ({name,email}) => {
   return (
     
-    <div className="dataVal">
-    <h4>{name}</h4>
-    <h4>{email}</h4>
+    <div className="dataVal" >
+    <p>{name}</p>
+    <p>{email}</p>
    <Stack>
     <Button id="delete" variant="contained" color="error">
        <DeleteIcon/>

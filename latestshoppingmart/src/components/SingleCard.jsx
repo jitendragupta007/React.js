@@ -1,4 +1,7 @@
 import React from "react";
+import {toast} from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const SingleCard = ({ element, cartData, setCartData }) => {
   const { image, title, price, rating } = element;
@@ -11,9 +14,10 @@ const SingleCard = ({ element, cartData, setCartData }) => {
       });                                       // cart length 0 nahi hai isliye sabki id check karega..warna else k baad
                                                 // chala jata
    if (arr > -1) {
-    alert("Item is already in the cart");
+    toast.warning("Product is already in the cart")
     //if able to find id then it will show alert
       } else {
+        toast.success("Product added successfully in the cart");
         objectElement["quantity"] = 1;
         let newdata = [...cartData];
         newdata.push(objectElement);
@@ -21,10 +25,12 @@ const SingleCard = ({ element, cartData, setCartData }) => {
       }
      //else it will add the data to the cartData
     } else {
+      toast.success("Product added successfully in the cart");
       objectElement["quantity"] = 1;
       let newdata = [...cartData];
       newdata.push(objectElement);
       setCartData(newdata);
+      
     }
   };
 
