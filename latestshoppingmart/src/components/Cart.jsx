@@ -14,6 +14,7 @@ const Cart = ({ setCartData }) => {
 
   if (products.length == 0) {
     navigate("/");
+    
     // window.location.href = "/";
   }
 
