@@ -1,5 +1,6 @@
 import React from "react";
 import "./Cart.css";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 
 const CartCard = ({element,removeItem,increment,decrement, id}) => {
@@ -15,8 +16,13 @@ return (
         <h4>{element.title}</h4>
       </div>
       <div>
-        <button className="quantityBtn" onClick={()=>decrement(id)}>-</button>
-        <h3>{element.quantity}</h3>
+      {(element?.quantity==1) ?
+        <button id="quantityBtn" className="quantityBtn" onClick={()=>decrement(id)}><DeleteIcon/></button>
+      :
+      <button id="quantityBtn1" className="quantityBtn" onClick={()=>decrement(id)}>-</button>
+      }
+        
+        <h3 className="quantity">{element.quantity}</h3>
         <button className="quantityBtn" onClick={()=>increment(id)}>+</button>
       </div>
       <div>

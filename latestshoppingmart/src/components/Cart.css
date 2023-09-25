@@ -1,104 +1,135 @@
-*{
-    padding:0px;
-    margin: 0px;
-    box-sizing: border-box;
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
 }
 
-
-
-#mainCart{
-    display: grid;
-    width:95%;
-    margin:auto;
-    grid-template-columns: (1,1fr);
-    margin-top: 120px;
-    gap:5px;
-    margin-bottom: 50px;
-
+#mainCart {
+  display: grid;
+  width: 95%;
+  margin: auto;
+  grid-template-columns: (1, 1fr);
+  margin-top: 120px;
+  gap: 5px;
+  margin-bottom: 50px;
 }
 
-#mainCartDiv{
-    display:grid;
-    grid-template-columns: repeat(5,1fr);
-     background-color: white;
-    height:200px;
-    width:100%;
-    padding:20px;
-    margin:auto;
-    margin-top:10px;
-
+#mainCartDiv {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background-color: white;
+  height: 200px;
+  width: 100%;
+  padding: 20px;
+  margin: auto;
+  margin-top: 10px;
 }
 
-#mainCartDiv div{
-display:flex;
-  width:100%;
-  height:auto;
-  padding:5px;
+#mainCartDiv div {
+  display: flex;
+  width: 100%;
+  height: auto;
+  padding: 5px;
   justify-content: center;
- text-align: center;
- align-items: center;
- gap:5px;
+  text-align: center;
+  align-items: center;
+  gap: 5px;
 }
 
-img{
-    width:50%;
-    height:150px;
+img {
+  width: 50%;
+  height: 150px;
 }
 
-div button{
-    padding:8px;
-    cursor:pointer;
-    color:white;
-    background-color: blue;
-    border:0px;
+div button {
+  padding: 8px;
+  cursor: pointer;
+  color: white;
+  background-color: blue;
+  border: 0px;
 }
 
 
-#countCart{
-    font-size: 20px;
-    color:rgb(1, 75, 75);
-    font-weight: bold;
+
+
+
+#countCart {
+  font-size: 20px;
+  color: rgb(1, 75, 75);
+  font-weight: bold;
 }
 
-#remove button{
-    color:white;
-    background-color:rgba(0, 0, 0, 0.918);
+#remove button {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.918);
+}
+
+#cartTotal {
+  display: grid;
+  text-align: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+#cartTotal button {
+  width: 130px;
+  border-radius: 12px;
+  background-color: blue;
+  justify-content: center;
+}
+
+#cartTotal button:hover {
+  background-color: red;
+}
+
+#removeItem {
+  width: 80px;
+  border-radius: 12px;
+  background-color: blue !important;
+}
+
+#removeItem:hover {
+  background-color: red !important;
+  
+}
+
+.quantityBtn:hover {
+  background-color: green !important;
+}
+
+#quantityBtn{
+width:31px !important;
+height: 36px !important;
+padding:5px 0px 3px 0px ;
+background-color: red;
     
 }
 
-#cartTotal{
-    display:grid;
-    text-align: center;
-    justify-content: center;
-    gap:20px;
-    margin-top: 40px;
-}
 
-#cartTotal button{
-    width:130px;
-    border-radius: 12px;
-    background-color:blue;
-    justify-content: center;
 
-}
-
-#cartTotal button:hover{
-    background-color: red;
+#quantityBtn:hover {
+  background-color: rgb(196, 5, 5) !important;
+  box-sizing: border-box !important;
 }
 
 
-#removeItem{
-    width:80px;
-    border-radius: 12px;
-    background-color: blue !important;
+.quantityBtn {
+    width:30px !important;
+    height: 35px !important;
+    cursor: pointer;
+    color: white;
+    background-color: blue;
+    border: 0px;
+    font-size:20px;
+    font-weight: bold;
 }
 
-#removeItem:hover{
-    background-color: red !important;
-}
-
-.quantityBtn:hover{
-    background-color: green !important;
-
+#quantityBtn1{
+width:31px !important;
+height: 37px !important;
 
 }
+
+
+ 

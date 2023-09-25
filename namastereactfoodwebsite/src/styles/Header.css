@@ -1,0 +1,37 @@
+body {
+  background-color: rgba(181, 192, 189, 0.267);
+}
+
+.HeaderMain {
+  width: 100vw;
+  height: 85px;
+  display: flex;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: white;
+  position: fixed;
+  top: 0px;
+}
+
+.logo {
+  display: flex;
+  width: 40%;
+  height: 100%;
+  align-items: center;
+}
+
+.logo img {
+  width: 100px;
+  height: 90%;
+  margin-left: 50px;
+}
+
+.HeaderAtt {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  align-items: center;
+  padding-right: 50px;
+  font-size: 20px;
+}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./mart.css";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const NavBar = ({ setState, cartData, homepage, state }) => {
   const [newSate, setNewSate] = useState("");
@@ -62,7 +63,7 @@ const NavBar = ({ setState, cartData, homepage, state }) => {
         </div>
 
         <Link id="cart" to="cart">
-          <h2>Cart({cartData.length})</h2>
+          <h2> <ShoppingCartIcon color="white" className="cartIcon"/>{cartData.length}</h2>
         </Link>
       </div>
       <div className="navp2">
