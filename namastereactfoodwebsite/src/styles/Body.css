@@ -30,25 +30,29 @@ button {
 }
 .Body2 {
   width: 90%;
+  height: auto;
   margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   margin: auto;
   margin-top: 20px;
-  gap: 20px;
+  gap: 30px;
 }
 
 .resCard {
-  width: 100%;
+   width:100%;
   height: auto;
   padding: 15px;
   border-radius: 30px;
   padding: 10px;
-  font-size: 14px;
+  font-size: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  line-height: 20px;
+  background-color:white;
 }
 
 .resCard:hover {
-  border: 1px solid rgba(0, 0, 0, 0.616);
+  border: 1px solid rgba(0, 0, 0, 0.342);
   width:98%;
   cursor: pointer;
 
@@ -61,9 +65,17 @@ button {
   margin: auto;
 }
 
-.resCard h4,p {
+.resCard h4,p,h6,h5 {
   padding-left: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.384);
+  font-size: 14px;
+ 
+}
+.resCard p,h6,h5{
+  margin-top: -12px;
+}
+.resCard p{
+  margin-top:-25px;
 }
 
 .Search {

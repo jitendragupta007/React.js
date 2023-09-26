@@ -1,0 +1,16 @@
+.shimmerMain {
+  width: 85%;
+  height: 800px;
+  margin: auto;
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 160px;
+  gap:30px;
+}
+
+.shimmerUi{
+background-color: white;
+height:400px;
+width:100%;
+border-radius: 30px;
+}

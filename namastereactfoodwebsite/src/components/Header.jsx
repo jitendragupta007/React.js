@@ -1,12 +1,13 @@
 import React from "react";
 import "../styles/Header.css"
+import {LogoUrl} from "../Utils/constant.js"
 
 const Header = () => {
   return (
     <div className="HeaderMain">
       <div className="logo">
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvVSuXphYiyoJCLRLQl0HHai-cZXLdPKebu-_mKTt57WewpfiWPnJ3NRqj-L-5Rvr08sw&usqp=CAU"
+          src= {LogoUrl}
           alt="logo"
         />
       </div>
