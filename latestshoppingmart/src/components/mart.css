@@ -17,6 +17,7 @@
     align-items: center;
     position:fixed;
     top:0px;
+    z-index:1000;
   }
   
   .navp1 {
@@ -84,7 +85,7 @@
   
   
   .container{
-    width:95%;
+    width:90%;
     height:auto;
     display:grid;
     grid-template-columns: repeat(4,1fr);
@@ -94,17 +95,17 @@
   margin-bottom: 150px;
   }
   
-  .container img{
-    width:100%;
-    height:60%;
-  }
+
   
   .card{
    background-color: rgba(255, 255, 255, 0.603);
-   height:550px;
+   height:auto;
+   width:100%;
    line-height:25px;
    cursor: pointer;
    box-sizing: border-box;
+   padding: 5px !important;
+
   }
   
   .card img:hover{
@@ -228,7 +229,6 @@
   
     .card{
       background-color: rgba(255, 255, 255, 0.603);
-      height:550px;
       line-height:25px;
       cursor: pointer;
      }
@@ -313,7 +313,14 @@
     background-color:rgb(58, 56, 56) !important;
   }
   
+  .card img{
+    width:100% !important;
+    height:200px !important;
+  }
   
+
   
-  
+
+
+
   

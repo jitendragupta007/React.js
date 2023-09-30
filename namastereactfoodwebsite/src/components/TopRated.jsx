@@ -1,13 +1,39 @@
-import React from "react"
-import "../styles/Body.css"
+import React,{useState} from "react";
+import "../styles/Body.css";
 
-const TopRated =()=>{
-    return(
-        <div className="TopRated">
-        <button className="TopRatedFilter" onClick={()=>{console.log("Button Clicked")}}>TopRated</button>
-        </div>
-    )
+const TopRated = ({ setRestInfo, restInfo }) => {
+const [btnChange, setbtnChange] =useState("TopRated");
+const [AllData, setAllData]= useState(restInfo)
+
+
+
+    
+// we don't want return anything else from this function except filtered. 
+//so we won't write return
+//anywhere else.
+  const topRated = () => {
+    if(btnChange === "TopRated"){
+  const filteredList = restInfo.filter((element) => {
+  return element?.info?.avgRating > 4;
+    });
+    setRestInfo(filteredList);
+    setbtnChange("All")
+    console.log("filteredList", filteredList);
+} else{
+    setRestInfo(AllData);
+    setbtnChange("TopRated");
 }
+  };
 
+
+
+  return (
+    <div className="TopRated">
+      <button className="TopRatedFilter" onClick={topRated}>
+       {btnChange}
+      </button>
+    </div>
+  );
+};
 
 export default TopRated;

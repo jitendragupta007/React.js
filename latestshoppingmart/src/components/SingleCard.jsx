@@ -14,7 +14,7 @@ const SingleCard = ({ element, cartData, setCartData }) => {
       });                                       // cart length 0 nahi hai isliye sabki id check karega..warna else k baad
                                                 // chala jata
    if (arr > -1) {
-    toast.warning("Product is already in the cart")
+      toast.warning("Product is already in the cart")
     //if able to find id then it will show alert
       } else {
         toast.success("Product added successfully in the cart");
@@ -29,8 +29,7 @@ const SingleCard = ({ element, cartData, setCartData }) => {
       objectElement["quantity"] = 1;
       let newdata = [...cartData];
       newdata.push(objectElement);
-      setCartData(newdata);
-      
+      setCartData(newdata);   
     }
   };
 

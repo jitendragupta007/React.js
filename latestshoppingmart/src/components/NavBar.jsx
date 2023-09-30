@@ -4,7 +4,7 @@ import "./mart.css";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const NavBar = ({ setState, cartData, homepage, state }) => {
-  const [newSate, setNewSate] = useState("");
+  
   const data = [
     { labels: "Category", value: "" },
     { labels: "Men's clothing", value: "men's clothing" },

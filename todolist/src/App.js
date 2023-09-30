@@ -28,6 +28,20 @@ function App() {
     setData([...arr]);
   }
 
+  // let arr = [{ id: 123 }, { id: 899 }];
+  // let eid = [{ id: 123 }, { id: 456 }];
+  // const one = arr.map(function (element) {
+  //   let newArray = eid?.filter((e) => {
+  //     return e.id == element.id;
+  //   });
+  //   // let datanew = arr;
+  //   let data = { ...element, key: newArray?.length ? true : false };
+  //   let dataNew = { newData: data };
+  //   return dataNew;
+  // });
+
+  // console.log(one);
+
   const handlePress = (event) => {
     if (event.key == "Enter") {
       addData();

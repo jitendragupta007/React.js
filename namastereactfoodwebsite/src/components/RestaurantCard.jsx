@@ -10,7 +10,7 @@ return (
      <img src={UrlSwiggy} alt="foodShop" />
       <h4>{name}</h4>
       <h6>{avgRating}⭐</h6>
-      <p>{cuisines.join(", ")}</p>
+      <p>{cuisines[0]},{cuisines[1]},{cuisines[3]}</p>
       
       <h6>{costForTwo}</h6>
 

@@ -46,8 +46,7 @@ const Stopwatch = () => {
         if (Mseconds <= 999) {
           setMseconds(Mseconds + 1);
         }
-        
-        
+         
       }, 1);
     } else {
       clearInterval(interval);

@@ -2,6 +2,11 @@ body {
   background-color: rgba(181, 192, 189, 0.267);
 }
 
+a{
+  text-decoration:none !important;
+  color:black;
+}
+
 .HeaderMain {
   width: 100vw;
   height: 85px;
@@ -33,5 +38,17 @@ body {
   gap: 20px;
   align-items: center;
   padding-right: 50px;
-  font-size: 20px;
+}
+
+
+
+.HeaderAtt div h5 {
+  font-size: 18px !important;
+  font-weight: 600;
+  border-bottom: none !important;
+  margin-top: 20px;
+}
+
+a:hover{
+  color: teal;
 }

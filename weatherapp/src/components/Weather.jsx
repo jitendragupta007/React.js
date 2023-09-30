@@ -17,8 +17,7 @@ const Weather = () => {
       console.log(data);
       setCity(data.main);
     };
-
-    fetchAPI();
+       fetchAPI();
   }, [search]);
 
   return (
