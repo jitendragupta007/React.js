@@ -1,10 +1,36 @@
+
+
+#ShimmerTop{
+width:80%;
+height: 120px;
+background-color: white;
+margin:auto;
+margin-top: 100px;
+border-radius: 30px;
+display: grid;
+ justify-content: center;
+}
+
+#ShimmerTop .vortex{
+  width: 100%;
+  height: 50%;
+  display: flex;
+  padding-left:37%;
+  justify-content: space-between;
+}
+
+#ShimmerTop div h4{
+  margin-top:-18px;
+}
+
+
 .shimmerMain {
   width: 80%;
   height: 800px;
   margin: auto;
   display:grid;
   grid-template-columns: repeat(4, 1fr);
-  margin-top: 250px;
+  margin-top: 30px;
   gap:30px;
 
 }
@@ -15,3 +41,5 @@ height:350px;
 width:96%;
 border-radius: 30px;
 }
+
+

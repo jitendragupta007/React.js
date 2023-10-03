@@ -25,7 +25,7 @@ const Body = () => {
     console.log(resList);
     //const name = resList?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants[0]?.info?.name;
     setRestInfo(
-      resList?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+      resList?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
   };
@@ -47,8 +47,10 @@ if (onlineStatus===false){
 }
 
 
-
-  return restInfo.length === 0 ? (
+//if it shows cannot read properties then change in resList cards[1] to [2] or vice versa.
+//swiggy changes API data indexes 
+//keep track of it
+  return restInfo.length == 0 ? (
     <ShimmerUi />
   ) : (
     <>
