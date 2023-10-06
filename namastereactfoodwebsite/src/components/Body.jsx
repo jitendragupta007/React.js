@@ -8,8 +8,6 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../Utils/useOnlineStatus";
 
 const Body = () => {
-
-
   const [restInfo, setRestInfo] = useState([]);
 
   useEffect(() => {
@@ -22,10 +20,9 @@ const Body = () => {
     );
     const resList = await data.json();
     console.log("APIdata", resList);
-    console.log(resList);
     //const name = resList?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants[0]?.info?.name;
     setRestInfo(
-      resList?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+      resList?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
   };
@@ -42,22 +39,25 @@ const Body = () => {
 
   const onlineStatus = useOnlineStatus();
 
-if (onlineStatus===false){
-  return  <h1 style={{marginTop:"110px",textAlign:"center"}}>It looks like you are offline!! Please check your internet connection!</h1>
-}
+  if (onlineStatus === false) {
+    return (
+      <h1 style={{ marginTop: "110px", textAlign: "center" }}>
+        It looks like you are offline!! Please check your internet connection!
+      </h1>
+    );
+  }
 
-
-//if it shows cannot read properties then change in resList cards[1] to [2] or vice versa.
-//swiggy changes API data indexes 
-//keep track of it
-  return restInfo.length == 0 ? (
+  //if it shows cannot read properties then change in resList cards[1] to [2] or vice versa.
+  //swiggy changes API data indexes
+  //keep track of it
+  return restInfo && restInfo?.length == 0 ? (
     <ShimmerUi />
   ) : (
     <>
       <div className="Body">
-      <div className="bodyHeader">
-      <h2>Restaurants with online food delivery in Jaipur</h2>
-      </div>
+        <div className="bodyHeader">
+          <h2>Restaurants with online food delivery in Jaipur</h2>
+        </div>
         <div className="Body1">
           <div>
             <SearchBar restInfo={restInfo} setRestInfo={setRestInfo} />

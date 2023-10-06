@@ -23,25 +23,26 @@ const RestroMenu = () => {
     const menuData = await data.json();
     console.log("MenuData:", menuData.data);
     setRestInfo(
-      menuData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+      menuData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
   };
 
   console.log("resInfoMenu", resInfo);
 
-  if (resInfo?.length === 0) return <ShimmerUi />;
+  if (resInfo && resInfo?.length == 0) return <ShimmerUi />;
 
   return (
     <div className="restroMenu">
-      {resInfo.map((element) => {
+      {resInfo?.map((element) => {
         return (
-          <RestMenuCard 
+          <RestMenuCard
             key={element?.info?.id}
             imageId={element?.info?.cloudinaryImageId}
-            price ={(element?.info?.feeDetails?.totalFee)/10}
+            price={element?.info?.feeDetails?.totalFee / 10}
+            item={element}
           />
-        )
+        );
       })}
     </div>
   );

@@ -1,0 +1,91 @@
+#mainCart {
+  width: 80%;
+  height: auto;
+  display:flex;
+  margin: auto;
+  margin-top: 110px;
+  margin-bottom: 50px;
+ 
+}
+
+.cartItems {
+  width: 70%;
+  height: auto;
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  gap: 20px;
+  border-right: 1px solid rgba(0, 0, 0, 0.363);
+  
+}
+
+.cartDetails {
+  width: 100%;
+  height: auto;
+
+  justify-content: center;
+  text-align: center;
+}
+
+#cartCard {
+  width: 70%;
+  height: auto;
+  padding: 10px;
+  margin: auto;
+  border-radius: 30px;
+  background-color: white;
+  line-height: 10px;
+}
+
+#cartCard button {
+  background-color: red;
+
+}
+
+#cartCard button:hover{
+    background-color: rgb(218, 4, 4);
+}
+
+#cartCard:hover {
+  border: 1px solid rgba(0, 0, 0, 0.39);
+}
+
+.quantitybtns {
+  width: 50%;
+  display: flex;
+  margin: auto;
+  margin-bottom: 5px;
+  justify-content: center;
+  gap: 3px;
+  align-items: center;
+}
+.quantitybtns button {
+  background-color: rgb(0, 0, 255) !important;
+  width: 25px;
+}
+
+.quantitybtns .increaseCart:hover {
+  background-color: green !important;
+}
+
+.quantitybtns .decreaseCart:hover {
+  background-color: red !important;
+}
+
+.removeBtn{
+    width:80px;
+}
+
+
+.cartValue{
+  width: 30%;
+  text-align: center !important;
+  justify-content: center;
+}
+
+.removeBtn:hover{
+background-color: red !important;
+}
