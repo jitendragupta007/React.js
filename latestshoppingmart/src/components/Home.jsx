@@ -26,8 +26,7 @@ const Home = ({ setCartData, cartData }) => {
               element={element}
               setCartData={setCartData}
               cartData={cartData}
-      
-            />
+              />
           );
         })}
       </div>

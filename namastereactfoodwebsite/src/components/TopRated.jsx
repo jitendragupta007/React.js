@@ -9,8 +9,9 @@ const [AllData, setAllData]= useState(restInfo)
 
     
 // we don't want return anything else from this function except filtered. 
-//so we won't write return
+//so we won't write return, filter is returning us 
 //anywhere else.
+
   const topRated = () => {
     if(btnChange === "TopRated"){
   const filteredList = restInfo.filter((element) => {
@@ -24,8 +25,6 @@ const [AllData, setAllData]= useState(restInfo)
     setbtnChange("TopRated");
 }
   };
-
-
 
   return (
     <div className="TopRated">

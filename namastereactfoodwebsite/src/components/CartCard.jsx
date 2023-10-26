@@ -1,33 +1,35 @@
 import React from "react";
 import "../styles/Cart.css";
-import { useDispatch } from "react-redux";
-import { removeItem } from '../Utils/cartSlice';
 
 
 
 
-const CartCard = ({imageId, price, item}) => {
+
+
+const CartCard = ({imageId, price, item,id,incrementItem,decrementItem, handleRemoveItem}) => {
+
+ 
+ 
+  console.log("item quantity:", item.info.quantity)
   const UrlSwiggy = `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${imageId}`;
   
-  const dispatch = useDispatch();
-  const handleRemoveItem=(item) => {
-  dispatch(removeItem(item))
-  console.log("item removed")
-  }
+ 
+
 
   return (
     <div id="cartCard">
       <div>
         <img id="restDataMenuImg" src={UrlSwiggy} alt="dish" />
-        <h4>Price: {price}rs</h4>
       </div>
+      <div> <h4>{price}₹</h4></div>
       <div className="quantitybtns">
-        <button className="decreaseCart">-</button>1
-        <button className="increaseCart">+</button>
+        <button onClick={()=>decrementItem(id)} className="decreaseCart">-</button>
+              <h4>{item?.info?.quantity}</h4>
+        <button onClick={()=>incrementItem(id)} className="increaseCart">+</button>
       </div>
 
       <div>
-        <button onClick={()=>handleRemoveItem(item)} className="removeBtn">Remove</button>
+        <button onClick={()=>handleRemoveItem(id)} className="removeBtn">Remove</button>
       </div>
     </div>
   );

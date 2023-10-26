@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import ShimmerUi from "./ShimmerUi";
 import "../styles/RestroMenu.css";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import RestMenuCard from "./RestMenuCard";
+import Shimmer2 from "./Shimmer2";
 
 const RestroMenu = () => {
   const [resInfo, setRestInfo] = useState([]);
@@ -30,7 +30,7 @@ const RestroMenu = () => {
 
   console.log("resInfoMenu", resInfo);
 
-  if (resInfo && resInfo?.length == 0) return <ShimmerUi />;
+  if (resInfo && resInfo?.length == 0) return <Shimmer2 />;
 
   return (
     <div className="restroMenu">
@@ -41,6 +41,7 @@ const RestroMenu = () => {
             imageId={element?.info?.cloudinaryImageId}
             price={element?.info?.feeDetails?.totalFee / 10}
             item={element}
+            id={element?.info?.id}
           />
         );
       })}

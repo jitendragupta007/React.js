@@ -13,7 +13,7 @@ const SingleCard = ({ element, cartData, setCartData }) => {
       return value?.id == id;                    //  finIndex is a HOF like map/reduce/filter..no need of forloop
       });                                       // cart length 0 nahi hai isliye sabki id check karega..warna else k baad
                                                 // chala jata
-   if (arr > -1) {
+      if (arr > -1) {
       toast.warning("Product is already in the cart")
     //if able to find id then it will show alert
       } else {

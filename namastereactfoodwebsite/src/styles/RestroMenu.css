@@ -21,6 +21,8 @@
     line-height: 8px;
 }
 
+
+
 #restMenuCard:hover{
     width:96%;
     margin:auto;
@@ -43,6 +45,10 @@
 
 #restMenuCard button:hover{
     background-color:rgb(2, 102, 2); 
+}
+
+#cardPrice{
+    text-decoration: none;
 }
 
 

@@ -2,14 +2,14 @@ import "./App.css";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
-import Header from "./components/Header";
+
 import React, { useState } from "react";
 import Stack from "@mui/material/Stack";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 function App() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setname] = useState("");
+  const [email, setemail] = useState("");
 
   const [data, setData] = useState([]);
 
@@ -19,10 +19,12 @@ function App() {
       return false;
     } else {
       setData([...data, { name, email }]);
-      setName("");
-      setEmail("");
+      setname("");
+      setemail("");
     }
   };
+
+
 
   const removeItem = (index) => {
     let arr = data;
@@ -31,22 +33,22 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Header />
-      <div className="inputValues">
+    <div classname="App">
+   
+      <div  style={{display:"flex", marginTop:"50px",marginLeft:"30%"}}    classname="inputValues">
         {" "}
         <TextField
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setname(e.target.value)}
           id="outlined-success"
-          label="Enter Name"
-          defaultValue=""
-        />
+          label="Enter name"
+         />
+
         <TextField
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setemail(e.target.value)}
           id="outlined-success"
-          label="Enter Email"
+          label="Enter email"
           defaultValue=""
         />
         <Button onClick={addData} variant="contained" color="success">
@@ -55,8 +57,8 @@ function App() {
       </div>
       <div className="data">
         <div className="dataVal">
-          <h4>Name</h4>
-          <h4>Email</h4>
+          <h4>name</h4>
+          <h4>email</h4>
           <h4>remove</h4>
         </div>
         {data.map((element, index) => {
