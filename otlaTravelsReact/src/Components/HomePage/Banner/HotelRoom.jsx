@@ -1,6 +1,8 @@
 import React from "react";
 import AgeSelect from "./AgeSelect";
 
+//element.childrenages
+
 const HotelRoom = ({
   element,
   index,
@@ -10,6 +12,7 @@ const HotelRoom = ({
   increaseChilds,
   decreaseChilds,
   sliceRoomDetails,
+  storeChildrenAges
 }) => {
   console.log("element", element);
 
@@ -20,19 +23,19 @@ const HotelRoom = ({
     ageSelectComponents.push(element.children);
   }
 
-
   return (
     <div className="maindivroomsingle" data-roomid="1">
       <h4 className="roomnotext">
         <span>Room {index + 1}</span>
-        { (element.roomno===sliceRoomDetails.length && element.roomno !==1) &&   <span
-          style={{ display: "block" }}
-          onClick={() => handleRemoveRoom(element?.roomno)}
-          className="closeroom"
-        >
-          Remove
-        </span>
-        }
+        {element.roomno === sliceRoomDetails.length && element.roomno !== 1 && (
+          <span
+            style={{ display: "block" }}
+            onClick={() => handleRemoveRoom(element?.roomno)}
+            className="closeroom"
+          >
+            Remove
+          </span>
+        )}
       </h4>
       <div className="roomdata">
         <div className="flexdiv" data-min="1" data-max="6">
@@ -60,15 +63,18 @@ const HotelRoom = ({
             </div>
           </div>
         </div>
-        <div className="flexdiv childagemaindiv">{
-          ageSelectComponents.map((element,index)=>{
+        <div className="flexdiv childagemaindiv">
+          {ageSelectComponents.map((ageSelect, index) => {
             return (
               <div key={index}>
-                <AgeSelect index={index} />
-                </div>
-            )
-          })
-        }</div>
+                <AgeSelect index={index} storeChildrenAges={storeChildrenAges}
+                  roomno={element?.roomno} 
+                  element={element}
+                  />
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

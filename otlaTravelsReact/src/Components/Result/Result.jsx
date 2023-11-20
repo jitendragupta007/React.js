@@ -1,16 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useResult } from "../../Store/ResultStore";
 import HotelInfo from "./HotelInfo";
 import BoardType from "./BoardType";
 import Location from "./Location";
 import Shorting from "./ShortingFilter/Shorting";
+import { hotelResults } from "../../Utils/Auth";
+import { useNavigate } from "react-router-dom";
 
 const Result = () => {
   const { resultData, setResultData } = useResult();
+  const searchToken = sessionStorage.getItem("searchToken");
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    getResultData();
+  }, [searchToken]);
+
+  const getResultData = async () => {
+    const response = await hotelResults(searchToken);
+    if (response.success) {
+      try {
+        console.log("ResponseResult", response.data);
+        setResultData(response?.data);
+      } catch (error) {
+        console.log(error.message);
+      }
+    } else {
+      if (response.message === "CALL_AGAIN") {
+        getResultData();
+      } else {
+        console.log("responseErrorResult", response.message);
+        navigate("/");
+      }
+    }
+  };
 
   console.log("resultPageData", resultData);
-  console.log("resultData", resultData);
 
   return (
     <section className="hotel-section">
@@ -120,7 +145,7 @@ const Result = () => {
             <div className="filtertab">
               <div className="title newfiltertitle">Loction</div>
               <ul className="zonetypelist">
-                {resultData?.Filter?.zones.map((element,index) => {
+                {resultData?.Filter?.zones.map((element, index) => {
                   return (
                     <div key={index}>
                       <Location key={element?.code} element={element} />
@@ -132,7 +157,7 @@ const Result = () => {
           </div>
 
           <div className="right-div">
-          <Shorting resultData={resultData} setResultData= {setResultData} />
+            <Shorting resultData={resultData} setResultData={setResultData} />
 
             {resultData?.Data?.map((element) => {
               return (

@@ -7,12 +7,17 @@ import { useResult } from "../../../Store/ResultStore";
 import { useDispatch, useSelector } from "react-redux";
 import { addInfo } from "../../../Store/SearchParamsSlice";
 import HotelRoom from "./HotelRoom";
-import { addRoom, totalPassengers,  removeRoom,
+import {
+  addRoom,
+  totalPassengers,
+  removeRoom,
   increaseAdult,
   decreaseAdult,
-  increaseChild, 
-  decreaseChildren } from "../../../Store/RoomDetailsSlice";
-
+  increaseChild,
+  decreaseChildren,
+  addChildrenAges,
+} from "../../../Store/RoomDetailsSlice";
+import { checkValidData } from "../../../Utils/Validation";
 
 const Banner = () => {
   const [selected, setSelected] = useState("");
@@ -20,11 +25,9 @@ const Banner = () => {
   const [toDate, setToDate] = useState("");
   const [toggleStyle, setToggleStyle] = useState("none");
   const [searchParams, setSearchParams] = useState([]);
-  const [roomDetails, setRoomDetails] = useState({
-    rooms: [{ roomno: 1, adults: 1, children: 0, childrenages: [] }],
-  });
+ 
   const navigate = useNavigate();
-  const { getResultData } = useResult();
+  const { setResultData } = useResult();
 
   const SearchParamsData = useSelector((store) => store.SearchParams.data);
 
@@ -32,25 +35,19 @@ const Banner = () => {
 
   const adults = useSelector((store) => store.RoomDetails.totalAdults);
 
-  const children =useSelector((store) => store.RoomDetails.totalChildren);
-  
-  const rooms =useSelector((store) => store.RoomDetails.totalRooms);
+  const children = useSelector((store) => store.RoomDetails.totalChildren);
 
-  console.log("SearchParamsData",  SearchParamsData);
-  console.log("sliceRoomDetails", sliceRoomDetails)
-  
+  const rooms = useSelector((store) => store.RoomDetails.totalRooms);
 
+  console.log("SearchParamsData", SearchParamsData);
+  console.log("sliceRoomDetails", sliceRoomDetails);
+  console.log("ToolKitRoomDetails", SearchParamsData);
 
   const dispatch = useDispatch();
-  console.log("ToolKitRoomDetails", SearchParamsData[0]?.roomDetails?.rooms);
 
-  useEffect(() => {
-    handleAddInfo();
-  }, [searchParams]);
-
-  const handleAddInfo = () => {
-    console.log("addInfo", searchParams);
-    dispatch(addInfo(searchParams));
+  const handleAddInfo = (element) => {
+    console.log("addInfo", element);
+    dispatch(addInfo(element));
   };
 
   const handleToggle = () => {
@@ -63,10 +60,19 @@ const Banner = () => {
   const numberOfNights = Math.ceil(timeDiff / (1000 * 3600 * 24));
   console.log(numberOfNights + " nights");
 
-  const storeSearchParams = () => {
-    setSearchParams({
+  console.log("bannerSelected", selected);
+  console.log("fromDate", fromDate);
+  console.log("toDate", toDate);
+  console.log("SearchParams", searchParams);
+ 
+
+  const sendSearchData = async () => {
+    const message = checkValidData(selected, fromDate, toDate, sliceRoomDetails)
+    if (message !== null) return  toast.warn(message);
+   
+    searchParams.push({
       cityname: selected.cityname,
-      countryname:selected.countryname,
+      countryname: selected.countryname,
       code: selected.code,
       searchtype: selected.searchtype,
       cname: selected.cname,
@@ -75,22 +81,19 @@ const Banner = () => {
       nights: numberOfNights,
       roomDetails: sliceRoomDetails,
     });
-  };
-
-  console.log("bannerSelected", selected);
-  console.log("fromDate", fromDate);
-  console.log("toDate", toDate);
-  console.log("SearchParams", searchParams);
-  console.log("hotelDetails", roomDetails);
-
-  const sendSearchData = async () => {
-    storeSearchParams();
-    const result = await searchHotels(selected, fromDate, toDate,sliceRoomDetails);
+    handleAddInfo(searchParams);
+ 
+    const result = await searchHotels(
+      selected,
+      fromDate,
+      toDate,
+      sliceRoomDetails
+    );
     if (result.success) {
       try {
+         setResultData([]);
         console.log("result", result);
         sessionStorage.setItem("searchToken", result?.searchtoken);
-        getResultData();
         navigate(`/result/${result.searchtoken}`);
       } catch (error) {
         console.log(error.message);
@@ -102,9 +105,9 @@ const Banner = () => {
     }
   };
 
-  const increaseRooms=()=>{
-    dispatch(addRoom())
-  }
+  const increaseRooms = () => {
+    dispatch(addRoom());
+  };
 
   console.log("searchParams", searchParams);
   console.log("SearchParamsData", SearchParamsData);
@@ -131,11 +134,23 @@ const Banner = () => {
     dispatch(decreaseChildren(element));
   };
 
+  const storeChildrenAges = (index, selectedAge, roomno) => {
+    dispatch(addChildrenAges({ index, selectedAge, roomno }));
+
+    console.log("index,selectedAge,roomno", index, selectedAge, roomno);
+  };
 
   useEffect(() => {
-  dispatch(totalPassengers())
-},[dispatch,increaseAdults,decreaseAdults, increaseChilds, decreaseChilds, increaseRooms, handleRemoveRoom])
-
+    dispatch(totalPassengers());
+  }, [
+    dispatch,
+    increaseAdults,
+    decreaseAdults,
+    increaseChilds,
+    decreaseChilds,
+    increaseRooms,
+    handleRemoveRoom,
+  ]);
 
   return (
     <section className="banner-section">
@@ -188,9 +203,9 @@ const Banner = () => {
                 >
                   <div className="mainpopupselectroom">
                     <div>
-                      {sliceRoomDetails?.map((element,index) => {
+                      {sliceRoomDetails?.map((element, index) => {
                         return (
-                          <div key={element?.id}>
+                          <div key={element?.roomno}>
                             <HotelRoom
                               element={element}
                               id={element?.roomno}
@@ -200,9 +215,8 @@ const Banner = () => {
                               decreaseAdults={decreaseAdults}
                               increaseChilds={increaseChilds}
                               decreaseChilds={decreaseChilds}
-                              sliceRoomDetails=
-                              {sliceRoomDetails}
-                            
+                              sliceRoomDetails={sliceRoomDetails}
+                              storeChildrenAges={storeChildrenAges}
                             />
                           </div>
                         );

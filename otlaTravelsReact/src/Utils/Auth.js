@@ -90,7 +90,7 @@ export const hotelResults = (searchtoken) => {
   const url = `/Gethotelsearch`;
 
   const params = {
-    searchtoken:searchtoken ,
+    searchtoken:"7cc56e91-d7f6-4d63-bc70-b1bf23828c76" ,
   };
 
   const headers = {

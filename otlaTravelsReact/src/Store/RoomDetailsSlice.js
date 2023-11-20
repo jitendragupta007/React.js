@@ -4,8 +4,9 @@ import { toast } from "react-toastify";
 const RoomDetailsSlice = createSlice({
   name: "RoomDetails",
   initialState: {
-    rooms: [{ roomno: 1, adults: 1, childs: 0, childenAges: [] }],
+    rooms: [{ roomno: 1, adults: 1, childs: 0, childrenages: [] }],
   },
+
   reducers: {
     addRoom: (state, action) => {
       if (state.rooms.length === 4) {
@@ -20,7 +21,7 @@ const RoomDetailsSlice = createSlice({
           roomno: newRoomId,
           adults: 1,
           childs: 0,
-          childrenAges: [],
+          childrenages: [],
         },
       ];
     },
@@ -37,11 +38,18 @@ const RoomDetailsSlice = createSlice({
     },
 
     increaseAdult: (state, action) => {
+  
       const roomIdToIncrease = action.payload.roomno;
+  
 
       const roomIndex = state.rooms.findIndex(
         (room) => room.roomno === roomIdToIncrease
       );
+
+      if (state.rooms[roomIndex].adults >= 6) {
+        toast.warn("Sorry, you can't add more than 6 adults in a room.")
+        return;
+      }
 
       if (roomIndex !== -1) {
         state.rooms[roomIndex].adults += 1;
@@ -58,7 +66,7 @@ const RoomDetailsSlice = createSlice({
       if (roomIndex !== -1 && state.rooms[roomIndex].adults > 1) {
         state.rooms[roomIndex].adults -= 1;
       } else {
-        toast.warn("At least one adult should be there in the room");
+        toast.warn("At least one adult should be there in the room.");
       }
     },
 
@@ -101,6 +109,19 @@ const RoomDetailsSlice = createSlice({
       state.totalChildren = childCount
       state.totalRooms = totalRooms;
     },
+
+    addChildrenAges: (state, action) => {
+      console.log("action.payload.index", action.payload.index, "action.payload.selectedAge", action.payload.selectedAge, "action.payload.roomno", action.payload.roomno)
+      
+  
+      const roomIndex = state?.rooms.findIndex((element) => {
+        return element.roomno ===action.payload.roomno
+      })
+
+      if (roomIndex > -1) {
+        state.rooms[roomIndex].childrenages[action.payload.index]= action.payload.selectedAge
+      }
+    }
   },
 });
 
@@ -112,6 +133,7 @@ export const {
   increaseChild,
   decreaseChildren,
   totalPassengers,
+  addChildrenAges
 } = RoomDetailsSlice.actions; //we have exported our actions
 
 export default RoomDetailsSlice.reducer;

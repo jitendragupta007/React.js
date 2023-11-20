@@ -1,11 +1,18 @@
-import React from 'react'
+import React,{useState} from 'react'
 
-const AgeSelect = ({index}) => {
+const AgeSelect = ({ index, storeChildrenAges, roomno, element }) => {
+ 
+
+  const handleAgeSelect = (event) => {
+
+    storeChildrenAges(index, event.target.value, roomno)
+}
+
   return (
     <div className="childagediv" data-childdivid="1">
     <label>
       Child {index+1} <span>Age</span>
-      <select id="drproom1child1age">
+      <select id="drproom1child1age" value={element.childrenages[index]}  onChange={handleAgeSelect}>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
