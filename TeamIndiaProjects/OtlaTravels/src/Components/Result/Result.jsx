@@ -1,27 +1,67 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useResult } from "../../Store/ResultStore";
 import HotelInfo from "./HotelInfo";
-import BoardType from "./BoardType";
-import Location from "./Location";
 import Shorting from "./ShortingFilter/Shorting";
 import { hotelResults } from "../../Utils/Auth";
 import { useNavigate } from "react-router-dom";
+import FilterStarRating from "./FilterStarRating";
+import FilterPrice from "./FilterPrice";
+import FilterSearch from "./FilterSearch";
+import FilterBoardType from "./FilterBoardType";
+import FilterLocation from "./FilterLocation";
 
 const Result = () => {
   const { resultData, setResultData } = useResult();
+  const [selectedPrices, setSelectedPrices] = useState([]);
+  const [selectedStarRatings, setSelectedStarRatings] = useState([]);
+  const [selectedBoardTypes, setSelectedBoardTypes] = useState([]);
+  const [selectedLocations, setSelectedLocations] = useState([]);
+  const [filteredData, setFilteredData] = useState([])
+
   const searchToken = sessionStorage.getItem("searchToken");
   const navigate = useNavigate();
 
+  console.log("selectedStarRatings", selectedStarRatings)
+  const applyStarRatingFilter = (data, selectedStarRatings) => {
+    return selectedStarRatings.length === 0
+      ? data
+      : data.filter(hotel => selectedStarRatings?.includes(Math.ceil(hotel.starrating)));
+  };
+  
+  
+  const applyBoardTypeFilter = (data, selectedBoardTypes) => {
+    return selectedBoardTypes?.length === 0
+      ? data
+      : data?.filter(hotel => selectedBoardTypes?.some(type => hotel.roomcode.includes(type)));
+  };
+
+  console.log("selectedLocations", selectedLocations)
+  const applyLocationFilter = (data, selectedLocations) => {
+    return selectedLocations.length === 0
+      ? data
+      : data?.filter(hotel => selectedLocations?.some(location => hotel?.zonecode?.includes(location)));
+  };
+  
+  
+
   useEffect(() => {
     getResultData();
-  }, [searchToken]);
+  }, [searchToken,selectedBoardTypes, selectedLocations, selectedStarRatings]);
 
   const getResultData = async () => {
     const response = await hotelResults(searchToken);
     if (response.success) {
       try {
         console.log("ResponseResult", response.data);
-        setResultData(response?.data);
+         setResultData(response?.data)
+        let filteredData = response?.data?.Data;
+        filteredData = applyStarRatingFilter(filteredData, selectedStarRatings);
+        filteredData = applyBoardTypeFilter(filteredData, selectedBoardTypes);
+        filteredData = applyLocationFilter(filteredData, selectedLocations);
+
+
+        console.log("filteredResultPageData", filteredData);
+        setFilteredData(filteredData);
       } catch (error) {
         console.log(error.message);
       }
@@ -47,119 +87,42 @@ const Result = () => {
             <ul className="searchtype">
               <li className="active packtagetypee">Filter</li>
             </ul>
-            <div className="filtertab">
-              <div className="title newfiltertitle">Hotel Name</div>
-              <ul className="hotelnamefilter">
-                <li>
-                  <input
-                    type="text"
-                    id="hotelname"
-                    className="hotelfilterinput"
-                    placeholder="Search Hotel Name Here!"
-                  />
-                  <input type="hidden" id="hdnhotelname" value="" />
 
-                  <ul className="autocompletehotel">
-                    <li>Enter more than 3 characters</li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
+            <FilterSearch
+              resultData={filteredData}
+              setResultData={setFilteredData}
+              
+            />
+            <FilterPrice
+              selectedPrices={selectedPrices}
+              setSelectedPrices={setSelectedPrices}
+            />
+            <FilterStarRating
+              selectedStarRatings={selectedStarRatings}
+              setSelectedStarRatings={setSelectedStarRatings}
+            />
+            <FilterBoardType
+              selectedBoardTypes={selectedBoardTypes}
+              resultData={resultData}
+              setSelectedBoardTypes={setSelectedBoardTypes}
+            />
 
-            <div className="filtertab">
-              <div className="title newfiltertitle">Price</div>
-              <ul className="price">
-                <li></li>
-              </ul>
-            </div>
-
-            <div className="filtertab">
-              <div className="title newfiltertitle">Star Rating</div>
-              <ul className="starratinglist">
-                <li>
-                  <label>
-                    <input
-                      type="checkbox"
-                      className="starrating"
-                      data-value="5"
-                    />
-                    <img src="/assets/images/home/star.png" />
-                    <img src="/assets/images/home/star.png" />
-                    <img src="/assets/images/home/star.png" />
-                    <img src="/assets/images/home/star.png" />
-                    <img src="/assets/images/home/star.png" />
-                    <span className="checkspan"></span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input
-                      type="checkbox"
-                      className="starrating"
-                      data-value="4"
-                    />
-                    <img src="/assets/images/home/star.png" />
-                    <img src="/assets/images/home/star.png" />
-                    <img src="/assets/images/home/star.png" />
-                    <img src="/assets/images/home/star.png" />
-                    <img src="/assets/images/home/star1.png" />
-                    <span className="checkspan"></span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input
-                      type="checkbox"
-                      className="starrating"
-                      data-value="3"
-                    />
-                    <img src="/assets/images/home/star.png" />
-                    <img src="/assets/images/home/star.png" />
-                    <img src="/assets/images/home/star.png" />
-                    <img src="/assets/images/home/star1.png" />
-                    <img src="/assets/images/home/star1.png" />
-                    <span className="checkspan"></span>
-                  </label>
-                </li>
-              </ul>
-            </div>
-
-            <div className="filtertab">
-              <div className="title newfiltertitle">Board Type</div>
-              <ul className="mealtypelist">
-                {resultData?.Filter?.boards?.map((element) => {
-                  return (
-                    <div key={element?.code}>
-                      <BoardType element={element} />
-                    </div>
-                  );
-                })}
-              </ul>
-            </div>
-
-            <div className="filtertab" style={{ display: "none" }}>
+            {/* <div className="filtertab" style={{ display: "block" }}>
               <div className="title newfiltertitle">Hotel Type</div>
               <ul className="hoteltypelist"></ul>
-            </div>
-
-            <div className="filtertab">
-              <div className="title newfiltertitle">Loction</div>
-              <ul className="zonetypelist">
-                {resultData?.Filter?.zones.map((element, index) => {
-                  return (
-                    <div key={index}>
-                      <Location key={element?.code} element={element} />
-                    </div>
-                  );
-                })}
-              </ul>
-            </div>
+            </div> */}
+            <FilterLocation
+              resultData={resultData}
+              selectedLocations={selectedLocations}
+              setSelectedLocations={setSelectedLocations}
+            />
           </div>
 
           <div className="right-div">
-            <Shorting resultData={resultData} setResultData={setResultData} />
+            
+            <Shorting resultData={filteredData} setResultData={setFilteredData} />
 
-            {resultData?.Data?.map((element) => {
+            {filteredData?.map((element) => {
               return (
                 <div key={element?.unique_id}>
                   <HotelInfo element={element} />

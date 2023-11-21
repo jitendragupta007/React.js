@@ -20,7 +20,7 @@ const HotelRoom = ({
   const ageSelectComponents = [];
 
   for (let i = 0; i < numberOfTimes; i++) {
-    ageSelectComponents.push(element.children);
+    ageSelectComponents.push(i);
   }
 
   return (

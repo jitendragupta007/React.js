@@ -1,20 +1,28 @@
-import React from 'react'
+import React from "react";
 
-const BoardType = ({element}) => {
+const BoardType = ({ element, selectedBoardTypes, handleBoardTypeChange }) => {
+  const isChecked = selectedBoardTypes.includes(element?.code);
+
+  const handleCheckboxChange = () => {
+    handleBoardTypeChange(element?.code);
+  };
+
+  console.log("isChecked", isChecked)
   return (
-    
-<li>
-                  <label>
-                    <input
-                      type="checkbox"
-                      className="mealtype"
-                      data-value={element?.code}
-                    />
-                    {element?.text}<span className="checkspan"></span>
-                  </label>
-                </li>
+    <li>
+      <label>
+        <input
+         type="checkbox"
+          className="mealtype"
+          data-value={element?.code}
+          checked={isChecked}
+          onChange={handleCheckboxChange}
+        />
+        {element?.text}
+        <span className="checkspan"></span>
+      </label>
+    </li>
+  );
+};
 
-  )
-}
-
-export default BoardType
+export default BoardType;

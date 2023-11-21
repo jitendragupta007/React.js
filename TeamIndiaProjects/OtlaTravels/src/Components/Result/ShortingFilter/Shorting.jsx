@@ -7,7 +7,7 @@ const Shorting = ({ resultData, setResultData }) => {
   const [allData, setAllData] = useState([]);
 
   useEffect(() => {
-    setAllData(resultData?.Data);
+    setAllData(resultData);
   }, [resultData]);
 
   console.log("shortPageResultData", resultData);
@@ -25,17 +25,17 @@ const Shorting = ({ resultData, setResultData }) => {
     console.log("dataSortType", dataSortType);
 
     let sortedData;
-    if (resultData.Data.length === 0) {
+    if (resultData?.length === 0) {
       return;
     }
  if (dataSortType === "asc") {
-    sortedData = [...resultData?.Data].sort((a, b) => (dataCol !=="hotelname" ? a[dataCol]-b[dataCol]: a[dataCol].localeCompare(b[dataCol])));
+    sortedData = [...resultData].sort((a, b) => (dataCol !=="hotelname" ? a[dataCol]-b[dataCol]: a[dataCol].localeCompare(b[dataCol])));
   } else {
-    sortedData = [...resultData?.Data].sort((a, b) =>  (dataCol !=="hotelname" ? b[dataCol]-a[dataCol]: b[dataCol].localeCompare(a[dataCol])));
+    sortedData = [...resultData].sort((a, b) =>  (dataCol !=="hotelname" ? b[dataCol]-a[dataCol]: b[dataCol].localeCompare(a[dataCol])));
   }
 
 
-    setResultData({ ...resultData, Data: sortedData });
+    setResultData([...sortedData]);
   };
 
   console.log("sortValue", sortValue);
