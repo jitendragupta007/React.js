@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+    <defs>
+        <clipPath id="prefix__clip-path">
+            <path id="prefix__Path_2085" d="M7 0a7 7 0 0 1 0 14 7.327 7.327 0 0 1-2.681-.532A6.912 6.912 0 0 1 0 7a7 7 0 0 1 7-7z" data-name="Path 2085" style="fill:#fff;stroke:#2577be"/>
+        </clipPath>
+        <style>
+            .prefix__cls-3{fill:#888}
+        </style>
+    </defs>
+    <g id="prefix__Mask_Group_108" data-name="Mask Group 108">
+        <g id="prefix__round-information-button">
+            <g id="prefix__Group_1386" data-name="Group 1386">
+                <path id="prefix__Path_2082" d="M7.111 0a7.112 7.112 0 1 0 7.112 7.112A7.12 7.12 0 0 0 7.111 0zm0 13.291a6.179 6.179 0 1 1 6.179-6.179 6.186 6.186 0 0 1-6.179 6.179z" class="prefix__cls-3" data-name="Path 2082"/>
+                <path id="prefix__Path_2083" d="M9.115 5.566a.622.622 0 1 0-.622-.622.622.622 0 0 0 .622.622z" class="prefix__cls-3" data-name="Path 2083" transform="translate(-2.135 -1.087)"/>
+                <path id="prefix__Path_2084" d="M9.912 11.631h-.39V7.185a.466.466 0 0 0-.466-.466H8.2a.466.466 0 0 0 0 .933h.39v3.979H8.2a.466.466 0 0 0 0 .933h1.712a.466.466 0 1 0 0-.933z" class="prefix__cls-3" data-name="Path 2084" transform="translate(-1.944 -1.689)"/>
+            </g>
+        </g>
+    </g>
+</svg>
