@@ -1,0 +1,24 @@
+//common-heading
+.common-heading{ color: $black; margin-bottom:30px; padding-left: 23px; position: relative; color: $black;
+    &:before{content: ''; border-left: 2px solid $blue; position: absolute; left: 0; bottom: 0; top: 0;}
+    strong{font-size: 20px; font-weight: 700; text-transform: uppercase;  display: block;
+      &.big{font-size: 40px;}
+    }
+    small{font-size: 18px; font-weight: 300; }
+
+
+}
+ 
+
+@media(max-width:767px){
+
+  .common-heading{
+    strong{
+      &.big{
+        font-size: 20px;;
+      }
+      
+    }
+    small{font-size: 15px;}
+  }
+}

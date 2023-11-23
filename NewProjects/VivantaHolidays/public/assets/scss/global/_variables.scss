@@ -1,0 +1,51 @@
+//container
+$container1260: 1260px;
+
+//media queries
+$break-mobile: "only screen and (min-width :767px)";
+$break-tablets: "only screen and (min-width :767.98px)";
+$break-desktop: "only screen and (min-width :991.98px)";
+$break-large: "only screen and (min-width :1199.98px)";
+
+
+//image path
+$imgurl : "../../assets/images";
+
+
+
+//example
+//@media #{$information-phone} { background: red;}
+
+$font-stack: 'Poppins', sans-serif;
+
+
+//font path
+
+$container:1220px;
+ 
+ 
+
+$margin-auto: auto;
+
+
+//color
+$black:#000;
+$white:#ffffff;
+$pink:#e31e25; 
+$blue:#7A8AE5;  
+$dark-blue:#f09419;  
+$gray:#FAFAFA;
+$border :#e6e6e6; 
+$soft-border:#ddd;
+$orange :#f09419; 
+ 
+
+ 
+ 
+
+img{ max-width: 100%;}
+
+
+
+
+

@@ -1,0 +1,46 @@
+//go-travel
+.go-travel{background: $gray; padding: 80px 0; 
+
+    .container{display: flex; justify-content: space-between; align-items: center;}
+    .left-content{width: 53%;}
+    .heading{color: $black; font-size: 53px; font-weight:800; line-height: 69px; text-transform: uppercase;}
+    p,span{font-size: 16px; font-weight: 300;}
+    p{line-height: 31px;}
+    ul{display: flex; justify-content: space-between; margin-top: 25px;
+     li{border-right: 1px solid $soft-border; padding:5px 40px;  width: 33.3%;
+       &:first-child{padding-left: 0;}
+       &:last-child{padding-right: 0; border-right: 0;}
+     }
+    }
+    strong{font-size: 30px; font-weight: 600; display: block;}
+
+    figure{width: 38%;}
+}
+
+
+@media(max-width:767px){
+
+  .go-travel{padding:50px 0px;
+    .container{
+      flex-wrap: wrap;
+    }
+    .left-content{width:100%;}
+    .heading{
+      font-size: 34px;
+      line-height: 50px;
+    }
+
+    ul{flex-wrap:wrap;
+    li{width:100%; text-align: center; margin-bottom: 15px;;
+    &:first-child{padding:0;}
+       &:last-child{padding:0; border-right: 0;}
+    
+    }
+    }
+    figure{
+      width:100%;
+
+      img{width:100%;}
+    }
+  }
+}

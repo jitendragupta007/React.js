@@ -1,0 +1,20 @@
+
+//banner
+.banner{background: url(../images/home/banner.jpg)no-repeat 0; background-position:bottom; background-size: cover; padding: 83px 0 425px; }
+
+//banner-content
+.banner-content{width: 881px; margin: 0 auto;  color: $white;  text-align: center;
+
+    .heading{font-size: 40px; font-weight: 700;} 
+    p{font-size: 15px; font-weight: 300;} padding-top:3px;
+}
+
+
+ @media(max-width:767px){
+
+    .banner{ padding:83px 0px 500px;
+        .banner-content{
+            width:100%;
+        }
+    }
+ }

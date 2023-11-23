@@ -1,0 +1,138 @@
+
+
+
+//hotel-listing
+.hotel-listing{background: $gray; padding: 50px 0; 
+  .container{display: flex; justify-content: space-between;}
+}
+
+
+//hotel-list-left
+.hotel-list-left{width:28%; background: $white; padding: 25px; border-radius: 2px;
+
+    .select-box{position: relative;
+        &::after{content:"\f107";    font-family: "Font Awesome 6 Free"; font-weight: 900; font-size: 16px;  color: $black;  position: absolute; right:15px; top:50%; transform: translateY(-50%);}
+        select{width: 100%;  padding: 12px; border: 1px solid $border; font-size: 15px; border-radius:5px; color: $black;}
+    }
+
+
+    .heading{font-size: 18px; text-transform: uppercase; padding:22px 0 15px; font-weight: 500;
+     i{margin-right: 5px; display: inline-block; font-size: 18px; vertical-align: middle;}
+    }
+}
+
+
+//packeges-list-box
+.packeges-list-box{padding: 15px; border: 1px solid $border; border-radius: 5px;
+
+    .title{font-size:16px; font-weight: 500; text-transform: uppercase; padding-bottom:10px; border-bottom: 1px solid $border; margin-bottom: 25px; position: relative;
+        &::after{content:"\f077";    font-family: "Font Awesome 6 Free"; font-weight: 900; font-size: 16px;  color: $black;  position: absolute; right:15px; top:6px; }
+    }
+    .form-group {display: block; margin-bottom: 15px;} 
+    .form-group input {padding: 0; height: initial; width: initial; margin-bottom: 0; display: none; cursor: pointer; }
+    .form-group label {position: relative; cursor: pointer; color: $black; font-size: 15px; text-transform: capitalize; font-weight: 500; }
+    .form-group label:before {content:''; -webkit-appearance: none; background-color: transparent;     border: 2px solid $dark-blue;  padding: 10px; display: inline-block; position: relative; vertical-align: middle; cursor: pointer; margin-right: 12px; border-radius: 4px; }
+    .form-group input:checked + label:after {content: ''; display: block; position: absolute; top: 3px; left: 9px; width: 5px; height: 12px; border: solid $dark-blue; border-width: 0 2px 2px 0; transform: rotate(45deg); } 
+
+}
+
+
+//hotel-details-right
+.hotel-details-right{background: $white; padding: 25px; width: 70%; color: $black;}
+
+
+//select-sorting
+.select-sorting{ margin-bottom:20px; position: relative; width: 35%;
+    &::after{content:"\f107";    font-family: "Font Awesome 6 Free"; font-weight: 900; font-size: 16px;  color: $black;  position: absolute; right:15px; top:50%; transform: translateY(-50%);}
+    select{width: 100%; padding: 12px; border: 1px solid $border; font-size: 15px; color: $black; border-radius: 4px;}
+}
+
+
+//hotel-all-detail
+.hotel-all-detail{padding: 25px; border: 1px solid $border; border-radius: 3px;}
+
+//hotel-content-info
+.hotel-content-info{display: flex; justify-content: space-between;
+
+    .left{width: 60%;}
+    .right{text-align: right; width: 40%; 
+      span{text-transform: uppercase; margin: 0;}
+    }
+    .heading{font-size: 20px; font-weight: 600; display: flex; align-items: center; margin-bottom: 5px;}
+    .icons{display: flex; margin-left: 12px;}
+    i{color: $pink; font-size: 14px; margin-left:2px;}
+    span{font-size: 13px; display: block; margin-bottom: 20px;} 
+    strong{display: block; font-size: 18px; font-weight: 600; color: $orange;}
+}
+
+
+//hotel-book-detail
+.hotel-book-detail{display: flex; justify-content: space-between; align-items: flex-start;}
+
+
+//hotel-book-img
+.hotel-book-img{width: 62%; 
+
+    figure{line-height: 0;
+     img{width:100%; }
+    }
+}
+
+//booking-text
+.booking-text{padding-top: 15px;
+
+    .inner-content{display: flex; justify-content: space-between; margin-bottom: 15px;}
+    .left{width: 35%;}
+    .right{ width: 65%; text-align: right; 
+     strong{color: $pink;}
+    }
+    strong{display: block; font-size: 18px; font-weight: 700; color: $orange; padding-bottom: 5px;}
+    span{font-size: 14px; font-weight: 500; font-style: italic; text-decoration: underline;}
+    label{display: block; font-size: 12px; font-style: italic; font-weight: 500;}
+}
+
+
+
+//share-booking
+.share-booking{display: flex; align-items: center;
+
+    small{display: inline-block; font-size: 14px;  font-style: italic; text-decoration: underline; font-weight: 600; padding-right: 10px;}
+    a{display: inline-block; margin-left:4px;  color: $pink;}
+    i{font-size: 15px; vertical-align: middle;}
+}
+
+//hotel-available-service
+.hotel-available-service{width:35%; background: #f9f9f9; border: 1px solid $border;
+
+    ul{
+        li{font-size: 13px; font-weight: 500; border-bottom: 1px dashed $black; padding: 10px;}
+        i{color: $pink; font-size: 16px; margin-right:8px;}
+    }
+}
+
+
+//view_detail-button
+.view_detail-button{ display: flex; justify-content: space-between; align-items: center; padding: 15px 10px;
+    a{display: inline-block;}
+}
+
+//view_btn
+.view_btn{ padding: 7px 12px; font-size: 14px; border-radius: 3px; text-transform: uppercase; color: $white; background: $pink;} 
+
+//terms
+.terms{color: $black; font-style: italic;  text-decoration: underline; font-weight: 500; font-size: 12px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
