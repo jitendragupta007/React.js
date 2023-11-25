@@ -1,0 +1,149 @@
+//basket_main_section
+.basket_main_section{  padding: 40px 0; border-top: 1px solid $border;} 
+
+
+//step_bar
+.step_bar{ 
+
+    ul{display: flex;  justify-content: space-between; position: relative; z-index: 1; width: 90%; margin: 0 auto; 
+        &:after{content: ""; position: absolute; top: 11px; left: 0; right: 0; border-bottom: 2px dashed #9d9d9d; width: 92%; margin: 0 auto; z-index: -1; }
+        li{text-align: center; 
+          &.active{
+              span{background-color: $red; box-shadow: 0 0 0 5px rgba(201, 202, 250, 0.6);}
+              p{font-weight: 600;}
+          } 
+        } 
+    }
+
+    span {background-color: #92a1a9; border-radius: 100%; color: #fff; display: block; height: 24px;line-height: 24px; margin-bottom: 12px;font-weight: 700; text-align: center; width: 24px; margin: 0 auto; }
+    p{font-size: 14px; margin-top: 8px;}
+
+}
+
+
+
+//Passenger_info_main
+.Passenger_info_main{display: flex; justify-content: space-between; flex-wrap: wrap; padding:50px 0;}
+
+//left_panel_info
+.left_panel_info{width: 68%;}
+
+//Passenger_basic_details
+.Passenger_basic_details{background: $white; box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.2); margin-bottom:30px; border-radius: 2px;
+    .paxheading{padding: 10px 15px; font-size: 15px; background: $black; color: $white; }
+    .innerpax{margin: 0 15px;}
+}
+
+//paxinput_box
+.paxinput_box{padding: 15px; 
+
+    ul{display: flex; justify-content: space-between; flex-wrap: wrap; 
+    
+        li{width: 32.33%; margin-bottom: 15px;}
+    }
+    small{display: inline-block; color: $red; font-size: 13px; font-weight: 600;}
+    input,select{width: 100%; border: 1px solid $border; height:40px; padding: 0 15px; margin-top: 5px; border-radius: 4px;}
+    select{background: url(../images/home/down.svg) no-repeat 95%;}
+}
+
+
+//proceed_button
+.proceed_button{background: $yellow; padding: 9px 26px; border-radius: 5px 0 5px 0; margin-left: auto; max-width: max-content; font-size: 15px; font-weight: 700; color: $black; display:block;}
+
+
+
+//right_flight_details
+.right_flight_details{width: 30%; }
+
+//flight_print_data
+.flight_print_data{    box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.2); background: $white; margin-bottom: 25px; padding-bottom: 20px;
+
+    .title{padding: 10px; color:$white; background:$black;}
+}
+
+
+//fight_info_row
+.fight_info_row{display: flex; align-items: center; flex-wrap: wrap; justify-content: space-around; 
+     li {width: 25%; text-align: center;  }
+    .airlinedetails {text-align: center; width: 100%; margin-bottom: 15px; margin-top: 15px; padding-bottom: 15px; border-bottom: 1px dashed #14141F; }
+    small{display: block; width: 100%;}
+    figure{
+        img{width: 40px;}
+    }
+
+    strong{display: block; width: 100%; text-align: center;}
+}
+
+
+//price_info_box
+.price_info_box{background: $white; box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.2); 
+    .title{padding: 10px; background: $black; color: $white;}
+    ul{ display:flex;  align-items:center; flex-wrap:wrap; justify-content:space-around; 
+        &:last-child{border-top: 1px dashed $black;}
+     li{padding: 15px;}
+    }
+}
+
+//search_timing_box
+.search_timing_box{background: $white; box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.2); padding: 25px 0; text-align: center; margin-top: 25px;
+
+    span{font-size: 36px; color: $red; border: 2px solid $red; padding: 5px 20px; display: inline-block; line-height: 36px; font-weight: 700;}
+}
+
+//right-panel
+.right_panel {width: 30%;
+
+    .flightdetails {background:$white; box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.2); margin-bottom: 20px;}
+    .title {padding: 10px; background: $yellow; color: $black;}
+}
+
+.hoteldetails {padding: 10px;  color: $black;
+
+    figure {max-height: 200px;}
+    .name_starrating {display: flex; padding-top: 10px;}
+    h4 {margin-right: 10px;}
+    p {color: #7d7d7d;}
+
+    .rooms_selected{
+         h4 {background:$gray; padding: 2px 5px;border-radius: 3px; font-size: 14px;}
+    }
+    
+    .rooms_selected span { display: block; font-size: 13px; }
+}
+
+
+.totalamount {display: flex; justify-content: space-between; align-items: center; padding-top: 10px; margin-top: 10px; border-top: 1px dashed #827b7b; 
+     span{font-size: 15px; color: $black; font-weight: 600;}
+    p{font-size: 22px; font-weight: 800; color: $black;}
+}
+
+
+ .auto_timeing {padding: 20px 0 ; text-align: center; background:$white; box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.2); margin-bottom: 20px; 
+
+     span{font-size: 34px;font-weight: bold; color: #df2229; text-align: center; border: solid 2px; width: auto;display: inline-block;padding: 0 15px;line-height: 45px; margin-top: 5px;}
+    }
+
+
+@media(max-width:767px){
+
+    .container{padding-left: 15px; padding-right: 15px;}
+
+    .step_bar {
+        p{font-size: 12px;}
+    }
+
+    .left_panel_info{width: 100%;}
+
+    .paxinput_box{
+         ul{
+            li{width: 100%;}
+         }
+    }
+
+    .right_flight_details{width: 100%; margin-top:15px;}
+
+    .right_panel{width: 100%; margin-top: 20px;
+        .flightdetails{width: 100%;}
+    }
+
+}
