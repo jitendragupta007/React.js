@@ -1,0 +1,40 @@
+//container
+$container1260: 1260px;
+
+//media queries
+$break-mobile: "only screen and (max-width :767px)";
+$break-tablets: "only screen and (min-width :767.98px)";
+$break-desktop: "only screen and (min-width :991.98px)";
+$break-large: "only screen and (min-width :1199.98px)";
+
+//image path
+$imgurl: "../../assets/images";
+
+//example
+//@media #{$information-phone} { background: red;}
+
+$font-stack: "Poppins", sans-serif;
+
+//font path
+
+//color
+$white: #fff;
+$black: #000;
+$red: #d94d95; 
+
+$light-blue: #71a9e4;
+$light-gray: #f0f4ff;
+$blue: #27316c;
+$gray: #e3eaf1;
+$border: #b8bcbf;
+$lightgray: #eceff4;
+$orange: #d94d95;
+$yellow: #d94d95;
+
+$green: #d94d95;
+$dark-gray: #707070;
+$color2: #012533;
+$color4: #0f4988;
+img {
+  max-width: 100%;
+}

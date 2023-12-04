@@ -1,0 +1,22 @@
+.mobile_stopes_content{
+
+    position:relative;
+   
+
+}
+
+
+.parentStop{
+ positon:relative;
+ color: black;
+
+}
+
+.parentStop{
+ width:50%;
+ position:relative;
+ z-index: 50;
+ margin:auto;
+ top:0px;
+
+}

@@ -1,0 +1,46 @@
+body.active {overflow: hidden;}
+.overlay.active {background: rgba(0, 0, 0, 0.5); position: fixed; display: block;width: 100%;height: 100%;z-index: 9;left: 0;top: 0;opacity: 1;  transition: all 0.4s ease; }
+body { font-family: "Poppins", sans-serif; overflow-x: hidden;color: $black;}
+.container { max-width: 1200px; margin: 0 auto; padding-left: 15px; padding-right: 15px; }
+
+//header_row
+.header_row{padding: 10px 0; background: $white; border-bottom: 1px solid $border;
+
+  .container{display: flex; justify-content: space-between; align-items: center;}
+}
+
+//logo
+.logo{display: inline-block; 
+  img{height:45px;}
+}
+ 
+//menu
+.menu{position: absolute; z-index: 99; transition: 0.4s ease-in-out; left: -100%; top: 0; right: 0; bottom: 0; background: $white; width: 80%;
+
+  &.active{left: 0;}
+
+  a{color: $black; font-size: 15px; font-weight: 500; padding:11px 15px; border-bottom: 1px solid $border; display: block;}
+}
+
+
+//language_row
+.language_row{display: inline-block; 
+
+  span{display: inline-block; font-size:16px; cursor: pointer;}
+  
+  img{vertical-align: middle; margin-left: 5px;}
+}
+
+//menu_icon
+.menu_icon{cursor:pointer;}
+
+
+//flight_tabs
+.flight_tabs{background: $gray; padding: 15px; position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: -1; display: flex; align-items: center; justify-content: center;}
+
+
+//flight_middle
+.flight_middle{width: 100%; 
+  a{display: block; box-shadow: 0 3px 3px #727272; text-align: center; background:$red; padding: 10px 0; font-size: 20px; color: $white; font-weight: 600; text-transform: uppercase; position: relative;}
+  img{position: absolute; right: 0; right: 15px; }
+}
