@@ -1,0 +1,26 @@
+.multi-range-slider {
+  width: 95%;
+  margin: auto;
+  margin-top: 50px;
+  display: flex;
+  position: relative;
+  border: solid 1px gray;
+  border-radius: 10px;
+  padding: 20px 10px !important;
+
+  flex-direction: column;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.multi-range-slider .bar-inner {
+  background-color: rgb(86, 86, 227);
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  justify-content: space-between;
+  position: relative;
+  border: solid 1px black;
+  justify-content: space-between;
+}
