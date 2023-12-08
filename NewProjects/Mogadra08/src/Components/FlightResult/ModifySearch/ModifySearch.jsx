@@ -2,7 +2,7 @@ import React from "react";
 import SearchFlight from "../../../Screens/SearchFlight/SearchFlight";
 import FilterSearch from "../FilterSearch/FilterSearch";
 
-const ModifySearch = ({ showModify, handleModify,handleFilterShow, showFilter, filteredData,selectedFwdPaths,setSelectedFwdPaths,selectedRvrsePaths,setSelecetedRvrsePaths,operatedBy,setOperatedBy }) => {
+const ModifySearch = ({ showModify, handleModify,handleFilterShow, showFilter, filteredData,selectedFwdPaths,setSelectedFwdPaths,selectedRvrsePaths,setSelecetedRvrsePaths,operatedBy,setOperatedBy,setSelectedTotalTime }) => {
   return (
     <>
       <section className="fliter_search">
@@ -43,6 +43,7 @@ const ModifySearch = ({ showModify, handleModify,handleFilterShow, showFilter, f
          setSelecetedRvrsePaths ={  setSelecetedRvrsePaths}
           operatedBy={operatedBy}
           setOperatedBy={setOperatedBy}
+          setSelectedTotalTime={setSelectedTotalTime}
         />
      </section>
 

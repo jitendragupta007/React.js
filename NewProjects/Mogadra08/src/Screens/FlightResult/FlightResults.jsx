@@ -15,31 +15,56 @@ const FlightResults = () => {
   const [showModify, setShowModify] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
   const [filteredData, setFilteredData] = useState([]);
+  const [selectedFwdPaths, setSelectedFwdPaths] = useState([]);
+  const [selectedRvrsePaths, setSelecetedRvrsePaths] = useState([]);
+  const [operatedBy, setOperatedBy] = useState([]);
+  const [selectedTotalTime, setSelectedTotalTime] = useState([]);
 
-  const [selectedFwdPaths, setSelectedFwdPaths] = useState([])
-  const [selectedRvrsePaths, setSelecetedRvrsePaths] = useState([])
-  const [operatedBy,setOperatedBy]=useState([])
+console.log("forwardPaths",selectedFwdPaths)
 
+
+  const applyTotalTimeFilter = useCallback(
+    (data, selectedTotalTime) => {
+      const minValue = selectedTotalTime[0];
+      const maxValue = selectedTotalTime[1];
+      console.log("MINMAX", minValue, maxValue);
+      // let hours = Hours = Math.floor(time /60)
+      return selectedTotalTime?.length === 0
+        ? data
+        : data?.filter((element) => {
+            return minValue <= Math.floor(element?.totaltime / 60) <= maxValue;
+          });
+    },
+    [selectedTotalTime]
+  );
 
   const applyOperatedByFilter = useCallback(
     (data, operatedBy) => {
       return operatedBy?.length === 0
         ? data
-        : data?.Data?.filter((flight) =>
+        : data?.filter((flight) =>
             operatedBy?.some((type) => flight?.Airlinelists[0]?.includes(type))
           );
     },
     [operatedBy]
   );
 
+  useEffect(() => {
+    let filterData = flightDataSlice?.Data;
+    filterData = applyOperatedByFilter(filterData, operatedBy);
+    filterData = applyTotalTimeFilter(filterData, selectedTotalTime);
+    setFilteredData(filterData);
+    console.log("resultFilteredData", filterData);
+  }, [flightDataSlice, operatedBy, selectedTotalTime]);
 
-console.log("OperatedBy", operatedBy)
+  console.log("OperatedBy", operatedBy, "selectedTotalTime", selectedTotalTime);
 
   useEffect(() => {
     getFlight();
-  }, [params?.scValue, operatedBy]);
+  }, [params?.scValue]);
 
   console.log("filteredData", filteredData);
+
   const handleModify = () => {
     setShowModify(!showModify);
   };
@@ -62,13 +87,6 @@ console.log("OperatedBy", operatedBy)
       console.log("result", result);
       if (result?.success === true && result?.data !== null) {
         dispatch(setResult(result?.data));
-
-        let filterData = result?.data;
-        filterData = applyOperatedByFilter(filterData, operatedBy)
-        console.log("checkCheck",filterData)
-        setFilteredData(filterData);
-
-        console.log("resultFilteredData", filterData)
       } else {
         console.log("result error", result?.message);
         if (result?.message === "CALL_AGAIN") {
@@ -91,17 +109,18 @@ console.log("OperatedBy", operatedBy)
         selectedFwdPaths={selectedFwdPaths}
         setSelectedFwdPaths={setSelectedFwdPaths}
         selectedRvrsePaths={selectedRvrsePaths}
-        setSelecetedRvrsePaths ={ setSelecetedRvrsePaths}
+        setSelecetedRvrsePaths={setSelecetedRvrsePaths}
         operatedBy={operatedBy}
         setOperatedBy={setOperatedBy}
+        setSelectedTotalTime={setSelectedTotalTime}
       />
 
       <section className="flight_resultmain">
-        {filteredData?.Data === null ? (
+        {filteredData === null ? (
           <div>No data found</div>
         ) : (
-          filteredData?.Data &&
-          filteredData?.Data?.map((element) => {
+          filteredData &&
+          filteredData?.map((element) => {
             return <ResultBox flightinfo={element} sc={params?.scValue} />;
           })
         )}

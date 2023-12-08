@@ -1,7 +1,10 @@
 import React from "react";
 import TimeRangeSlider from "./TimeRangeSlider/TimeRangeSlider";
 
-const TimingFilter = () => {
+const TimingFilter = ({ setSelectedTotalTime, filteredData }) => {
+
+
+  console.log("TimeRangeData", filteredData)
   return (
     <>
       <div className="filter_price">
@@ -46,10 +49,17 @@ const TimingFilter = () => {
             </li>
           </ul>
         </div>
-
-        <TimeRangeSlider title= {"DEPARTURE"} />
+        <h2>{filteredData?.Filter?.destination_filters[0].from}-{filteredData?.Filter?.destination_filters[0].to} </h2>
+         <TimeRangeSlider title= {"DEPARTURE"} />
         <TimeRangeSlider title={"ARRIVAL "} />
-        <TimeRangeSlider title={"JOURNEY DURATION"} />
+        <TimeRangeSlider title={"JOURNEY DURATION"} setSelectedTotalTime={setSelectedTotalTime} filteredData={filteredData} unit={"(in hours)"} />
+
+        <h2>{filteredData?.Filter?.destination_filters[1].from}-{filteredData?.Filter?.destination_filters[1].to} </h2>
+         <TimeRangeSlider title= {"DEPARTURE"} />
+        <TimeRangeSlider title={"ARRIVAL "} />
+        <TimeRangeSlider title={"JOURNEY DURATION"} setSelectedTotalTime={setSelectedTotalTime} filteredData={filteredData} unit={"(in hours)"} />
+
+
         
       </div>
     </>
