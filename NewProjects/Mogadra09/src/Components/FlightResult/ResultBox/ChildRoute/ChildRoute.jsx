@@ -1,16 +1,16 @@
 import React from 'react'
 import dateFormat from 'dateformat'
 
-const ChildRoute = ({ element1, index, ImgPath,time }) => {
+const ChildRoute = ({ element1, index1, ImgPath,time }) => {
     
-    console.log("element1", element1, index="index", "ImgPath", ImgPath)
+    console.log("index1", index1)
   return (
     <div style={{border:"1px solid teal"}} className="flightresutlgroup childRoute">
                   <div className="resultrow1">
                     <div className="row_label_col">
                       <div className="row_label">
                         <span className="fl_dir_on"></span>
-                        {index === 0 ? "Departure" : "Return"}
+                        {index1 === 0 ? "Departure" : "Return"}
                         <span className="top_l_triangle"></span>
                       </div>
                     </div>

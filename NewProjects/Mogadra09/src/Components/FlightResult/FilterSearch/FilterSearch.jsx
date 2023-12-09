@@ -63,7 +63,6 @@ const FilterSearch = ({
               handleSelectedFwdPaths={handleSelectedFwdPaths}
               setSelecetedRvrsePaths={setSelecetedRvrsePaths}
               selectedRvrsePaths={selectedRvrsePaths}
-              // handleSelectedRvrsePaths={handleSelectedRvrsePaths}
               handleCheckboxChange={handleCheckboxChange}
               isChecked={isChecked}
             />

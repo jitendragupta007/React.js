@@ -49,17 +49,20 @@ const TimingFilter = ({ setSelectedTotalTime, filteredData }) => {
             </li>
           </ul>
         </div>
-        <h2>{filteredData?.Filter?.destination_filters[0].from}-{filteredData?.Filter?.destination_filters[0].to} </h2>
+        {
+          filteredData?.Filter?.destination_filters?.map((element,index) => {
+            return (
+              <div key={index}>
+              <h2>{element?.from}-{element?.to} </h2>
          <TimeRangeSlider title= {"DEPARTURE"} />
         <TimeRangeSlider title={"ARRIVAL "} />
-        <TimeRangeSlider title={"JOURNEY DURATION"} setSelectedTotalTime={setSelectedTotalTime} filteredData={filteredData} unit={"(in hours)"} />
+        <TimeRangeSlider title={"JOURNEY DURATION"} setSelectedTotalTime={setSelectedTotalTime} filteredData={filteredData} unit={"(in hours)"} index={index} />
+        </div>  
 
-        <h2>{filteredData?.Filter?.destination_filters[1].from}-{filteredData?.Filter?.destination_filters[1].to} </h2>
-         <TimeRangeSlider title= {"DEPARTURE"} />
-        <TimeRangeSlider title={"ARRIVAL "} />
-        <TimeRangeSlider title={"JOURNEY DURATION"} setSelectedTotalTime={setSelectedTotalTime} filteredData={filteredData} unit={"(in hours)"} />
+           ) 
 
-
+          })
+    }
         
       </div>
     </>

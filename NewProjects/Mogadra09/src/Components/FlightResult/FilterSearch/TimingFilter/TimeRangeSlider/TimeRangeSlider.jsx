@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import MultiRangeSlider from "multi-range-slider-react";
 import "./TimeRangeSlider.css";
-const TimeRangeSlider = ({ title, setSelectedTotalTime, unit }) => {
+const TimeRangeSlider = ({ title, setSelectedTotalTime, unit,index }) => {
   const [minValue, set_minValue] = useState(0);
   const [maxValue, set_maxValue] = useState(24);
   const handleInput = (e) => {
     set_minValue(e.minValue);
     set_maxValue(e.maxValue);
   };
-  const updatedRange = [minValue, maxValue];
+  const updatedRange = [minValue, maxValue,index];
  
 
   useEffect(() => {

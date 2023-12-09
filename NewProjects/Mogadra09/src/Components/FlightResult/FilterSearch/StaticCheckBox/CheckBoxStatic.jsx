@@ -4,7 +4,6 @@ const CheckBoxStatic = ({
   title,
   Data,
   index,
-  selectedFwdPaths,
   handleCheckboxChange,
   isChecked
 }) => {
@@ -50,7 +49,7 @@ const CheckBoxStatic = ({
             <input
               type="checkbox"
               id="html"
-              value="1"
+              value="3"
               checked={isChecked}
               onChange={(e) => handleCheckboxChange(e.target.value, index)}
             />

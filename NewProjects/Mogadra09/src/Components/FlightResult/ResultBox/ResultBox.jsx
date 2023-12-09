@@ -107,7 +107,7 @@ const ResultBox = ({ flightinfo, sc }) => {
                   </span>
                 )}
                 <div className="parentStop">
-                  {console.log("elementConsole", element)}
+    
                   {showRoutes &&
                     routeType === index &&
                     element?.flightlist?.map((element) => {

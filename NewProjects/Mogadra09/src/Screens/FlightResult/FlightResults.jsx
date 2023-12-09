@@ -16,27 +16,67 @@ const FlightResults = () => {
   const [showFilter, setShowFilter] = useState(false);
   const [filteredData, setFilteredData] = useState([]);
   const [selectedFwdPaths, setSelectedFwdPaths] = useState([]);
-  const [selectedRvrsePaths, setSelecetedRvrsePaths] = useState([]);
   const [operatedBy, setOperatedBy] = useState([]);
   const [selectedTotalTime, setSelectedTotalTime] = useState([]);
 
-console.log("forwardPaths",selectedFwdPaths)
+  console.log("forwardPaths", selectedFwdPaths);
+  const applyFwdPathsFilter = useCallback(
+    (data, selectedFwdPaths) => {
+      return selectedFwdPaths?.length === 0
+        ? data
+        : data?.filter((element) => {
+            console.log("TestingElement", element);
+            return selectedFwdPaths?.some((path) => {
+              console.log(
+                "pathCode",
+                element?.OutboundInboundlist[path?.index]?.flightlist?.length
+              );
+              return (
+                path.code ==
+                element?.OutboundInboundlist[path?.index]?.flightlist?.length
+              );
+            });
+          });
+    },
+    [selectedFwdPaths]
+  );
 
-
+  //for total Journey
   const applyTotalTimeFilter = useCallback(
     (data, selectedTotalTime) => {
       const minValue = selectedTotalTime[0];
       const maxValue = selectedTotalTime[1];
+      const index = selectedTotalTime[2];
       console.log("MINMAX", minValue, maxValue);
-      // let hours = Hours = Math.floor(time /60)
       return selectedTotalTime?.length === 0
         ? data
         : data?.filter((element) => {
-            return minValue <= Math.floor(element?.totaltime / 60) <= maxValue;
+            console.log("totalTime", element?.totaltime / 60);
+            return (
+              minValue <= element?.totaltime / 60 &&
+              element?.totaltime / 60 <= maxValue
+            );
           });
     },
     [selectedTotalTime]
   );
+
+  //for Departure and Arrival
+  // const applyTotalTimeFilter = useCallback(
+  //   (data, selectedTotalTime) => {
+  //     const minValue = selectedTotalTime[0];
+  //     const maxValue = selectedTotalTime[1];
+  //     const index = selectedTotalTime[2];
+  //     console.log("MINMAX",minValue,maxValue)
+  //     return selectedTotalTime?.length === 0
+  //       ? data
+  //       : data?.filter((element) => {
+  //         console.log("totalTime",(element?.OutboundInboundlist[index]?.totaltime / 60) )
+  //           return minValue <= (element?.OutboundInboundlist[index]?.totaltime / 60) && (element?.OutboundInboundlist[index]?.totaltime / 60) <= maxValue;
+  //         });
+  //   },
+  //   [selectedTotalTime]
+  // );
 
   const applyOperatedByFilter = useCallback(
     (data, operatedBy) => {
@@ -52,10 +92,16 @@ console.log("forwardPaths",selectedFwdPaths)
   useEffect(() => {
     let filterData = flightDataSlice?.Data;
     filterData = applyOperatedByFilter(filterData, operatedBy);
-    filterData = applyTotalTimeFilter(filterData, selectedTotalTime);
+
+    const filterData1 = applyTotalTimeFilter(filterData, selectedTotalTime);
+
+    console.log("filterData1", filterData1);
+
+    filterData = applyFwdPathsFilter(filterData, selectedFwdPaths);
+
     setFilteredData(filterData);
     console.log("resultFilteredData", filterData);
-  }, [flightDataSlice, operatedBy, selectedTotalTime]);
+  }, [flightDataSlice, operatedBy, selectedTotalTime, selectedFwdPaths]);
 
   console.log("OperatedBy", operatedBy, "selectedTotalTime", selectedTotalTime);
 
@@ -108,8 +154,6 @@ console.log("forwardPaths",selectedFwdPaths)
         filteredData={flightDataSlice}
         selectedFwdPaths={selectedFwdPaths}
         setSelectedFwdPaths={setSelectedFwdPaths}
-        selectedRvrsePaths={selectedRvrsePaths}
-        setSelecetedRvrsePaths={setSelecetedRvrsePaths}
         operatedBy={operatedBy}
         setOperatedBy={setOperatedBy}
         setSelectedTotalTime={setSelectedTotalTime}

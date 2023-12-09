@@ -179,12 +179,12 @@ const SearchFlight = () => {
 
           <div className="input_box date_row">
             <label>DEPARTURE</label>
-            <SelectDate setSelectDate={setDepDate} />
+            <SelectDate style={{ cursor:"pointer"}} setSelectDate={setDepDate} />
           </div>
 
           <div className="input_box date_row">
             <label>Return</label>
-            <SelectDate setSelectDate={setReturnDate} />
+            <SelectDate  style={{ cursor:"pointer"}} setSelectDate={setReturnDate} />
           </div>
           <div className="input_box date_row">
             <label>Cabin / className</label>
